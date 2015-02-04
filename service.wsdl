@@ -27,7 +27,7 @@
         </binding>
         <service name="ServiceService">
                 <port name="UserFacadePort" binding="typens:UserFacadeBinding">
-                        <soap:address location="http://gatopolisphpclient.azurewebsites.net/server.php"/>
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/server.php"/>
                 </port>
         </service>
 </definitions>
