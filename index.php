@@ -1,6 +1,6 @@
 <?php 
 
-$host = "br-cdbr-azure-south-a.cloudapp.net";
+/*$host = "br-cdbr-azure-south-a.cloudapp.net";
 $user = "b33f81945fc541";
 $pwd = "a2536739";
 $db = "gatopolisphpdb";
@@ -15,7 +15,6 @@ if(count($registrants) > 0) {
 	foreach($registrants as $registrant) {
 		echo $registrant['name']."<br />";
 	}
-}
-
+}*/
 
 ?>
