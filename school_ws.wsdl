@@ -55,6 +55,13 @@
                 <part name="RemoveBySyncCodeReturn" type="xsd:string"/>
         </message>
         
+        <message name="Update">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="UpdateResponse">
+                <part name="UpdateReturn" type="xsd:string"/>
+        </message>
+        
         <portType name="SchoolWSPortType">
                 <operation name="LoadAll">
                         <input message="typens:LoadAll"/>
@@ -87,6 +94,10 @@
                 <operation name="RemoveBySyncCode">
                         <input message="typens:RemoveBySyncCode"/>
                         <output message="typens:RemoveBySyncCodeResponse"/>
+                </operation>
+                <operation name="Update">
+                        <input message="typens:Update"/>
+                        <output message="typens:UpdateResponse"/>
                 </operation>
         </portType>
         
@@ -163,6 +174,16 @@
                 </operation>
                 
                 <operation name="RemoveBySyncCode">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="Update">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

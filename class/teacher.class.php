@@ -73,6 +73,24 @@ class Teacher {
 		return $this->banco->executa($sql);
 	}
 
+	public function Update($data){
+		if($data["teacher_id"] == "")
+			return;
+	
+		$sql = "UPDATE teacher
+					SET name = '".$data["name"]."',
+				 		last_name = '".$data["last_name"]."',
+						email = '".$data["email"]."',
+						passcode = '".$data["passcode"]."',
+						question = '".$data["question"]."',
+						answer = '".$data["answer"]."',
+						picture = '".$data["picture"]."',
+						is_coordinator = ".$data["is_coordinator"].",
+						school_id = ".$data["school_id"]." 
+								WHERE teacher_id = ".$data["teacher_id"];
+		return $this->banco->executa($sql);
+	}
+	
 }
 
 ?>

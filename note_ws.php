@@ -90,6 +90,13 @@ class NoteWS {
         	return "";
         }
         
+        public function Update($input){
+        	$banco = new banco();
+        	$Note = new Note($banco);
+        	$Note->Update(json_decode($input, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
 }
  
 $oSoapServer = new SoapServer('note_ws.wsdl');

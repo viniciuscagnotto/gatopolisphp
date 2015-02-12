@@ -99,6 +99,13 @@
                 <part name="RemoveStudentByStudentGroupIDReturn" type="xsd:string"/>
         </message>
         
+        <message name="UpdateStudent">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="UpdateStudentResponse">
+                <part name="UpdateStudentReturn" type="xsd:string"/>
+        </message>
+        
 <!--  STUDENT GROUP TEACHER ----------------------------->
        	
         <message name="LoadAllStudentGroupTeachers"/>
@@ -229,6 +236,10 @@
                 <operation name="RemoveStudentByStudentGroupID">
                         <input message="typens:RemoveStudentByStudentGroupID"/>
                         <output message="typens:RemoveStudentByStudentGroupIDResponse"/>
+                </operation>
+                <operation name="UpdateStudent">
+                        <input message="typens:UpdateStudent"/>
+                        <output message="typens:UpdateStudentResponse"/>
                 </operation>
                
 <!--  STUDENT GROUP TEACHER ----------------------------->
@@ -407,6 +418,16 @@
                 </operation>
                  
                 <operation name="RemoveStudentByStudentGroupID">
+                        <soap:operation soapAction="urn:StudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="UpdateStudent">
                         <soap:operation soapAction="urn:StudentWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

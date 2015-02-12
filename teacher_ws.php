@@ -65,6 +65,14 @@ class TeacherWS {
         	return "";
         }
         
+        public function Update($input){
+        	$banco = new banco();
+        	$Teacher = new Teacher($banco);
+        	$Teacher->Update(json_decode($input, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
+        
 }
  
 $oSoapServer = new SoapServer('teacher_ws.wsdl');

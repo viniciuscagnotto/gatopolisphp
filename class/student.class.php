@@ -134,6 +134,26 @@ class Student {
 		return $this->banco->executa($sql);
 	}
 	
+	public function UpdateStudent($data){
+		if($data["student_id"] == "")
+			return;
+		
+		$sql = "UPDATE student
+					SET name = '".$data["name"]."',
+						last_name = '".$data["last_name"]."',
+						gender = '".$data["gender"]."',
+						guardian = '".$data["guardian"]."',
+						diagnosis_level = '".$data["diagnosis_level"]."',
+						coins = ".$data["coins"].",
+						buildings_count = '".$data["buildings_count"]."',
+						birth_date = '".$data["birth_date"]."',
+						school_id = ".$data["school_id"].",
+						student_group_id = ".$data["student_group_id"]."
+							WHERE student_id = ".$data["student_id"];
+		
+		return $this->banco->executa($sql);
+	}
+	
 
 /*
  * STUDENT GROUP TEACHER ******************************************

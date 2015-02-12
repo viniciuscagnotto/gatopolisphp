@@ -90,6 +90,20 @@ class Note {
 		$sql = "DELETE FROM note WHERE teacher_id = $teacherID";
 		return $this->banco->executa($sql);
 	}
+
+	public function Update($data){
+		if($data["note_id"] == "")
+			return;
+		
+		$sql = "UPDATE note
+					SET note_text = '".$data["note_text"]."',
+						school_id = ".$data["school_id"].",
+						teacher_id = ".$data["teacher_id"].",
+						student_id = ".$data["student_id"].",
+						written_at = '".$data["written_at"]."'
+							WHERE note_id = ".$data["note_id"];
+		return $this->banco->executa($sql);
+	}
 	
 }
 

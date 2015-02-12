@@ -49,6 +49,13 @@
                 <part name="RemoveBySchoolIDReturn" type="xsd:string"/>
         </message>
         
+        <message name="Update">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="UpdateResponse">
+                <part name="UpdateReturn" type="xsd:string"/>
+        </message>
+        
         <portType name="TeacherWSPortType">
                 <operation name="LoadAll">
                         <input message="typens:LoadAll"/>
@@ -77,6 +84,10 @@
                 <operation name="RemoveBySchoolID">
                         <input message="typens:RemoveBySchoolID"/>
                         <output message="typens:RemoveBySchoolIDResponse"/>
+                </operation>
+                <operation name="Update">
+                        <input message="typens:Update"/>
+                        <output message="typens:UpdateResponse"/>
                 </operation>
         </portType>
         
@@ -143,6 +154,16 @@
                 </operation>
                 
                 <operation name="RemoveBySchoolID">
+                        <soap:operation soapAction="urn:TeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="Update">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

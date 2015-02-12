@@ -58,6 +58,19 @@ class School {
 		return $this->banco->executa($sql);
 	}
 	
+	public function Update($data){
+		if($data["school_id"] == "")
+			return;
+		
+		$sql = "UPDATE school
+					SET name = '".$data["name"]."',
+						coordinator_code = '".$data["coordinator_code"]."',
+						public_id = '".$data["public_id"]."',
+						sync_code = '".$data["sync_code"]."'
+							WHERE school_id = ".$data["school_id"];
+		return $this->banco->executa($sql);
+	}
+	
 }
 
 ?>

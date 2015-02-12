@@ -69,6 +69,13 @@
                 <part name="RemoveByTeacherIDReturn" type="xsd:string"/>
         </message>
         
+        <message name="Update">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="UpdateResponse">
+                <part name="UpdateReturn" type="xsd:string"/>
+        </message>
+        
         <portType name="NoteWSPortType">
                 <operation name="LoadAll">
                         <input message="typens:LoadAll"/>
@@ -110,6 +117,11 @@
                         <input message="typens:RemoveByTeacherID"/>
                         <output message="typens:RemoveByTeacherIDResponse"/>
                 </operation>
+                <operation name="Update">
+                        <input message="typens:Update"/>
+                        <output message="typens:UpdateResponse"/>
+                </operation>
+                
         </portType>
         
         <binding name="NoteWSBinding" type="typens:NoteWSPortType">
@@ -205,6 +217,16 @@
                 </operation>
                 
                 <operation name="RemoveByTeacherID">
+                        <soap:operation soapAction="urn:NoteWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="Update">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

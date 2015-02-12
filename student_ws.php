@@ -131,6 +131,14 @@ class StudentWS {
         	return "";
         }
         
+        public function UpdateStudent($input){
+        	$banco = new banco();
+        	$Student = new Student($banco);
+        	$Student->UpdateStudent(json_decode($input, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
+        
 /*
  * STUDENT GROUP TEACHER
  */

@@ -73,6 +73,14 @@ class SchoolWS {
         	return "";
         }
         
+        public function Update($input){
+        	$banco = new banco();
+        	$School = new School($banco);
+        	$School->Update(json_decode($input, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
+        
 }
  
 $oSoapServer = new SoapServer('school_ws.wsdl');
