@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+        
+        <message name="LoadAll"/>
+        <message name="LoadAllResponse">
+                <part name="LoadAllReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="LoadByIDResponse">
+                <part name="LoadByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="LoadBySchoolIDResponse">
+                <part name="LoadBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        		<part name="amount" type="xsd:int"/>
+        </message>
+        <message name="LoadByStudentIDResponse">
+                <part name="LoadByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="Save">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="SaveResponse">
+                <part name="SaveReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="RemoveByIDResponse">
+                <part name="RemoveByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="RemoveBySchoolIDResponse">
+                <part name="RemoveBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="RemoveByStudentIDResponse">
+                <part name="RemoveByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <portType name="WrittenWordWSPortType">
+                <operation name="LoadAll">
+                        <input message="typens:LoadAll"/>
+                        <output message="typens:LoadAllResponse"/>
+                </operation>
+                <operation name="LoadByID">
+                        <input message="typens:LoadByID"/>
+                        <output message="typens:LoadByIDResponse"/>
+                </operation>
+                <operation name="LoadBySchoolID">
+                        <input message="typens:LoadBySchoolID"/>
+                        <output message="typens:LoadBySchoolIDResponse"/>
+                </operation>
+                <operation name="LoadByStudentID">
+                        <input message="typens:LoadByStudentID"/>
+                        <output message="typens:LoadByStudentIDResponse"/>
+                </operation>
+                <operation name="Save">
+                        <input message="typens:Save"/>
+                        <output message="typens:SaveResponse"/>
+                </operation>
+                <operation name="RemoveByID">
+                        <input message="typens:RemoveByID"/>
+                        <output message="typens:RemoveByIDResponse"/>
+                </operation>
+                <operation name="RemoveBySchoolID">
+                        <input message="typens:RemoveBySchoolID"/>
+                        <output message="typens:RemoveBySchoolIDResponse"/>
+                </operation>
+                <operation name="RemoveByStudentID">
+                        <input message="typens:RemoveByStudentID"/>
+                        <output message="typens:RemoveByStudentIDResponse"/>
+                </operation>
+        </portType>
+        
+        <binding name="WrittenWordWSBinding" type="typens:WrittenWordWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                <operation name="LoadAll">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadByID">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadBySchoolID">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadByStudentID">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="Save">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveByID">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveBySchoolID">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveByStudentID">
+                        <soap:operation soapAction="urn:WrittenWordWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+        </binding>
+        
+        <service name="ServiceService">
+                <port name="WrittenWordWSPort" binding="typens:WrittenWordWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/writtenword_ws.php"/>
+                </port>
+        </service>
+</definitions>

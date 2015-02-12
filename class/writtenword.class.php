@@ -24,7 +24,7 @@ class WrittenWord {
 		return $result;
 	}
 	
-	public function LoadByStudent($studentID, $limit = ""){
+	public function LoadByStudentID($studentID, $limit = ""){
 		$lastStudents = "";
 		if($limit != "")
 			$lastStudents .= " ORDER by written_at DESC LIMIT $limit";
@@ -38,7 +38,7 @@ class WrittenWord {
 		return $result;
 	}
 	
-	public function LoadBySchool($school_id){
+	public function LoadBySchoolID($school_id){
 		$sql = "SELECT *
 					FROM written_word wd
 				 		INNER JOIN school s ON s.school_id = wd.school_id
