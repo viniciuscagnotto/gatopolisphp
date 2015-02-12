@@ -11,6 +11,7 @@ include_once "class/writtenword.class.php";
 class GatopolisWS {
  
         public function LoadSchools() {
+        	$banco = banco::getInstance();
         	$School = new School();
         	$rs = $School->Load();
         	return $banco->encodeJSON($rs);

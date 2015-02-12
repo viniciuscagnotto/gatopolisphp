@@ -16,7 +16,7 @@ class banco {
 		$this->usuario_banco = "b33f81945fc541";
 		$this->senha_banco = "a2536739";
 		$this->host = "br-cdbr-azure-south-a.cloudapp.net";
-		conecta_banco();
+		$this->conecta_banco();
 	}
 	
 	
