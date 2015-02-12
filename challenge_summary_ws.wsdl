@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+        
+       	
+        <message name="LoadAllChallengeSummaries"/>
+        <message name="LoadAllChallengeSummariesResponse">
+                <part name="LoadAllChallengeSummariesReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeSummaryByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="LoadChallengeSummaryByIDResponse">
+                <part name="LoadChallengeSummaryByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeSummaryBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="LoadChallengeSummaryBySchoolIDResponse">
+                <part name="LoadChallengeSummaryBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeSummaryByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="LoadChallengeSummaryByStudentIDResponse">
+                <part name="LoadChallengeSummaryByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeSummaryByStudentIDAndEtapa">
+        		<part name="studentID" type="xsd:int"/>
+        		<part name="etapa" type="xsd:string"/>
+        </message>
+        <message name="LoadChallengeSummaryByStudentIDAndEtapaResponse">
+                <part name="LoadChallengeSummaryByStudentIDAndEtapaReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="SaveChallengeSummary">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="SaveChallengeSummaryResponse">
+                <part name="SaveChallengeSummaryReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveChallengeSummaryByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="RemoveChallengeSummaryByIDResponse">
+                <part name="RemoveChallengeSummaryByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveChallengeSummaryBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="RemoveChallengeSummaryBySchoolIDResponse">
+                <part name="RemoveChallengeSummaryBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveChallengeSummaryByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="RemoveChallengeSummaryByStudentIDResponse">
+                <part name="RemoveChallengeSummaryByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        
+        <portType name="ChallengeSummaryWSPortType">
+
+                <operation name="LoadAllChallengeSummaries">
+                        <input message="typens:LoadAllChallengeSummaries"/>
+                        <output message="typens:LoadAllChallengeSummariesResponse"/>
+                </operation>
+                <operation name="LoadChallengeSummaryByID">
+                        <input message="typens:LoadChallengeSummaryByID"/>
+                        <output message="typens:LoadChallengeSummaryByIDResponse"/>
+                </operation>
+                <operation name="LoadChallengeSummaryBySchoolID">
+                        <input message="typens:LoadChallengeSummaryBySchoolID"/>
+                        <output message="typens:LoadChallengeSummaryBySchoolIDResponse"/>
+                </operation>
+                <operation name="LoadChallengeSummaryByStudentID">
+                        <input message="typens:LoadChallengeSummaryByStudentID"/>
+                        <output message="typens:LoadChallengeSummaryByStudentIDResponse"/>
+                </operation>
+                <operation name="LoadChallengeSummaryByStudentIDAndEtapa">
+                        <input message="typens:LoadChallengeSummaryByStudentIDAndEtapa"/>
+                        <output message="typens:LoadChallengeSummaryByStudentIDAndEtapaResponse"/>
+                </operation>
+                <operation name="SaveChallengeSummary">
+                        <input message="typens:SaveChallengeSummary"/>
+                        <output message="typens:SaveChallengeSummaryResponse"/>
+                </operation>
+                <operation name="RemoveChallengeSummaryByID">
+                        <input message="typens:RemoveChallengeSummaryByID"/>
+                        <output message="typens:RemoveChallengeSummaryByIDResponse"/>
+                </operation>
+                <operation name="RemoveChallengeSummaryBySchoolID">
+                        <input message="typens:RemoveChallengeSummaryBySchoolID"/>
+                        <output message="typens:RemoveChallengeSummaryBySchoolIDResponse"/>
+                </operation>
+                <operation name="RemoveChallengeSummaryByStudentID">
+                        <input message="typens:RemoveChallengeSummaryByStudentID"/>
+                        <output message="typens:RemoveChallengeSummaryByStudentIDResponse"/>
+                </operation>
+               
+		</portType>
+        
+        <binding name="ChallengeSummaryWSBinding" type="typens:ChallengeSummaryWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                
+                <operation name="LoadAllChallengeSummaries">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeSummaryByID">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeSummaryBySchoolID">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeSummaryByStudentID">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeSummaryByStudentIDAndEtapa">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="SaveChallengeSummary">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveChallengeSummaryByID">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveChallengeSummaryBySchoolID">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveChallengeSummaryByStudentID">
+                        <soap:operation soapAction="urn:ChallengeSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+        </binding>
+        
+        <service name="ServiceService">
+                <port name="ChallengeSummaryWSPort" binding="typens:ChallengeSummaryWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/challenge_summary_ws.php"/>
+                </port>
+        </service>
+</definitions>

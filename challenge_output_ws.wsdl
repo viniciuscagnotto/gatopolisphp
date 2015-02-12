@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+        
+        <message name="LoadAllChallengeOutputs"/>
+        <message name="LoadAllChallengeOutputsResponse">
+                <part name="LoadAllChallengeOutputsReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeOutputByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="LoadChallengeOutputByIDResponse">
+                <part name="LoadChallengeOutputByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeOutputBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="LoadChallengeOutputBySchoolIDResponse">
+                <part name="LoadChallengeOutputBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeOutputByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="LoadChallengeOutputByStudentIDResponse">
+                <part name="LoadChallengeOutputByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadChallengeOutputByStudentIDAndEtapa">
+        		<part name="studentID" type="xsd:int"/>
+        		<part name="etapa" type="xsd:string"/>
+        </message>
+        <message name="LoadChallengeOutputByStudentIDAndEtapaResponse">
+                <part name="LoadChallengeOutputByStudentIDAndEtapaReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="SaveChallengeOutput">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="SaveChallengeOutputResponse">
+                <part name="SaveChallengeOutputReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveChallengeOutputByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="RemoveChallengeOutputByIDResponse">
+                <part name="RemoveChallengeOutputByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveChallengeOutputBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="RemoveChallengeOutputBySchoolIDResponse">
+                <part name="RemoveChallengeOutputBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveChallengeOutputByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="RemoveChallengeOutputByStudentIDResponse">
+                <part name="RemoveChallengeOutputByStudentIDReturn" type="xsd:string"/>
+        </message>
+
+        
+        <portType name="ChallengeOutputWSPortType">
+                <operation name="LoadAllChallengeOutputs">
+                        <input message="typens:LoadAllChallengeOutputs"/>
+                        <output message="typens:LoadAllChallengeOutputsResponse"/>
+                </operation>
+                <operation name="LoadChallengeOutputByID">
+                        <input message="typens:LoadChallengeOutputByID"/>
+                        <output message="typens:LoadChallengeOutputByIDResponse"/>
+                </operation>
+                <operation name="LoadChallengeOutputBySchoolID">
+                        <input message="typens:LoadChallengeOutputBySchoolID"/>
+                        <output message="typens:LoadChallengeOutputBySchoolIDResponse"/>
+                </operation>
+                <operation name="LoadChallengeOutputByStudentID">
+                        <input message="typens:LoadChallengeOutputByStudentID"/>
+                        <output message="typens:LoadChallengeOutputByStudentIDResponse"/>
+                </operation>
+                <operation name="LoadChallengeOutputByStudentIDAndEtapa">
+                        <input message="typens:LoadChallengeOutputByStudentIDAndEtapa"/>
+                        <output message="typens:LoadChallengeOutputByStudentIDAndEtapaResponse"/>
+                </operation>
+                <operation name="SaveChallengeOutput">
+                        <input message="typens:SaveChallengeOutput"/>
+                        <output message="typens:SaveChallengeOutputResponse"/>
+                </operation>
+                <operation name="RemoveChallengeOutputByID">
+                        <input message="typens:RemoveChallengeOutputByID"/>
+                        <output message="typens:RemoveChallengeOutputByIDResponse"/>
+                </operation>
+                <operation name="RemoveChallengeOutputBySchoolID">
+                        <input message="typens:RemoveChallengeOutputBySchoolID"/>
+                        <output message="typens:RemoveChallengeOutputBySchoolIDResponse"/>
+                </operation>
+                <operation name="RemoveChallengeOutputByStudentID">
+                        <input message="typens:RemoveChallengeOutputByStudentID"/>
+                        <output message="typens:RemoveChallengeOutputByStudentIDResponse"/>
+                </operation>
+               
+        </portType>
+        
+        <binding name="ChallengeOutputWSBinding" type="typens:ChallengeOutputWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                <operation name="LoadAllChallengeOutputs">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeOutputByID">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeOutputBySchoolID">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeOutputByStudentID">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadChallengeOutputByStudentIDAndEtapa">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="SaveChallengeOutput">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveChallengeOutputByID">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveChallengeOutputBySchoolID">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveChallengeOutputByStudentID">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+        </binding>
+        
+        <service name="ServiceService">
+                <port name="ChallengeOutputWSPort" binding="typens:ChallengeOutputWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/challenge_output_ws.php"/>
+                </port>
+        </service>
+</definitions>

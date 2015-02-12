@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ 
+        <message name="LoadAllWeekSummaries"/>
+        <message name="LoadAllWeekSummariesResponse">
+                <part name="LoadAllWeekSummariesReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadWeekSummaryByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="LoadWeekSummaryByIDResponse">
+                <part name="LoadWeekSummaryByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadWeekSummaryBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="LoadWeekSummaryBySchoolIDResponse">
+                <part name="LoadWeekSummaryBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadWeekSummaryByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="LoadWeekSummaryByStudentIDResponse">
+                <part name="LoadWeekSummaryByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadWeekSummaryByStudentIDAndEtapa">
+        		<part name="studentID" type="xsd:int"/>
+        		<part name="etapa" type="xsd:string"/>
+        </message>
+        <message name="LoadWeekSummaryByStudentIDAndEtapaResponse">
+                <part name="LoadWeekSummaryByStudentIDAndEtapaReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="SaveWeekSummary">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="SaveWeekSummaryResponse">
+                <part name="SaveWeekSummaryReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveWeekSummaryByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="RemoveWeekSummaryByIDResponse">
+                <part name="RemoveWeekSummaryByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveWeekSummaryBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="RemoveWeekSummaryBySchoolIDResponse">
+                <part name="RemoveWeekSummaryBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveWeekSummaryByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="RemoveWeekSummaryByStudentIDResponse">
+                <part name="RemoveWeekSummaryByStudentIDReturn" type="xsd:string"/>
+        </message>
+       
+        
+        <portType name="WeekSummaryWSPortType">
+                <operation name="LoadAllWeekSummaries">
+                        <input message="typens:LoadAllWeekSummaries"/>
+                        <output message="typens:LoadAllWeekSummariesResponse"/>
+                </operation>
+                <operation name="LoadWeekSummaryByID">
+                        <input message="typens:LoadWeekSummaryByID"/>
+                        <output message="typens:LoadWeekSummaryByIDResponse"/>
+                </operation>
+                <operation name="LoadWeekSummaryBySchoolID">
+                        <input message="typens:LoadWeekSummaryBySchoolID"/>
+                        <output message="typens:LoadWeekSummaryBySchoolIDResponse"/>
+                </operation>
+                <operation name="LoadWeekSummaryByStudentID">
+                        <input message="typens:LoadWeekSummaryByStudentID"/>
+                        <output message="typens:LoadWeekSummaryByStudentIDResponse"/>
+                </operation>
+                <operation name="LoadWeekSummaryByStudentIDAndEtapa">
+                        <input message="typens:LoadWeekSummaryByStudentIDAndEtapa"/>
+                        <output message="typens:LoadWeekSummaryByStudentIDAndEtapaResponse"/>
+                </operation>
+                <operation name="SaveWeekSummary">
+                        <input message="typens:SaveWeekSummary"/>
+                        <output message="typens:SaveWeekSummaryResponse"/>
+                </operation>
+                <operation name="RemoveWeekSummaryByID">
+                        <input message="typens:RemoveWeekSummaryByID"/>
+                        <output message="typens:RemoveWeekSummaryByIDResponse"/>
+                </operation>
+                <operation name="RemoveWeekSummaryBySchoolID">
+                        <input message="typens:RemoveWeekSummaryBySchoolID"/>
+                        <output message="typens:RemoveWeekSummaryBySchoolIDResponse"/>
+                </operation>
+                <operation name="RemoveWeekSummaryByStudentID">
+                        <input message="typens:RemoveWeekSummaryByStudentID"/>
+                        <output message="typens:RemoveWeekSummaryByStudentIDResponse"/>
+                </operation>
+        </portType>
+        
+        <binding name="WeekSummaryWSBinding" type="typens:WeekSummaryWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                 <operation name="LoadAllWeekSummaries">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadWeekSummaryByID">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadWeekSummaryBySchoolID">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadWeekSummaryByStudentID">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadWeekSummaryByStudentIDAndEtapa">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="SaveWeekSummary">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveWeekSummaryByID">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveWeekSummaryBySchoolID">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveWeekSummaryByStudentID">
+                        <soap:operation soapAction="urn:WeekSummaryWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+        </binding>
+        
+        <service name="ServiceService">
+                <port name="WeekSummaryWSPort" binding="typens:WeekSummaryWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/week_summary_ws.php"/>
+                </port>
+        </service>
+</definitions>
