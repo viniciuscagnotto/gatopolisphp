@@ -6,8 +6,8 @@ class Teacher {
 
 	private $banco;
 	
-	public function __construct() {
-		$this->banco = banco::getInstance();
+	public function __construct(banco $banco) {
+		$this->banco = $banco;
 	}
 	
 	public function Load($id = ""){	
@@ -19,7 +19,7 @@ class Teacher {
 					FROM teacher t
 						INNER JOIN school s ON s.school_id = t.school_id 
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -29,7 +29,7 @@ class Teacher {
 						INNER JOIN school s ON s.school_id = t.school_id
 							WHERE t.email = '$email' 
 								AND t.passcode = '$passcode'";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -38,7 +38,7 @@ class Teacher {
 					FROM teacher t 
 						INNER JOIN school s ON s.school_id = t.school_id
 							WHERE t.school_id = '$schoolID'";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -60,17 +60,17 @@ class Teacher {
 													   '".$data["picture"]."',
 													   ".$data["is_coordinator"].",
 													   ".$data["school_id"].");";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveByID($id){
 		$sql = "DELETE FROM teacher WHERE teacher_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveBySchoolID($schoolID){
 		$sql = "DELETE FROM teacher WHERE school_id = '$schoolID'";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 
 }

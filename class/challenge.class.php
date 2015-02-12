@@ -6,8 +6,8 @@ class Challenge {
 
 	private $banco;
 	
-	public function __construct() {
-		$this->banco = banco::getInstance();
+	public function __construct(banco $banco) {
+		$this->banco = $banco;
 	}
 	
 	
@@ -24,7 +24,7 @@ class Challenge {
 				 		INNER JOIN school s ON s.school_id = co.school_id
 						INNER JOIN student st ON st.student_id = co.student_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -34,7 +34,7 @@ class Challenge {
 						INNER JOIN school s ON s.school_id = co.school_id
 						INNER JOIN student st ON st.student_id = co.student_id
 							WHERE co.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -44,7 +44,7 @@ class Challenge {
 						INNER JOIN school s ON s.school_id = co.school_id
 						INNER JOIN student st ON st.student_id = co.student_id
 							WHERE co.student_id = $studentID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -55,7 +55,7 @@ class Challenge {
 						INNER JOIN student st ON st.student_id = co.student_id
 							WHERE co.student_id = $studentID
 								AND co.etapa = '$etapa'";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -81,22 +81,22 @@ class Challenge {
 															   		  ".$data["student_id"].",
 															   		  ".$data["summarized"].",
 															   		  ".$data["week_summarized"].");";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 
 	public function RemoveChallengeOutputByID($id){
 		$sql = "DELETE FROM challenge_output WHERE challenge_output_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveChallengeOutputBySchoolID($schoolID){
 		$sql = "DELETE FROM challenge_output WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveChallengeOutputByStudentID($studentID){
 		$sql = "DELETE FROM challenge_output WHERE student_id = $studentID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 /*
@@ -112,7 +112,7 @@ class Challenge {
 				 		INNER JOIN school s ON s.school_id = cs.school_id
 						INNER JOIN student st ON st.student_id = cs.student_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -122,7 +122,7 @@ class Challenge {
 						INNER JOIN school s ON s.school_id = cs.school_id
 						INNER JOIN student st ON st.student_id = cs.student_id
 							WHERE cs.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -132,7 +132,7 @@ class Challenge {
 						INNER JOIN school s ON s.school_id = cs.school_id
 						INNER JOIN student st ON st.student_id = cs.student_id
 							WHERE cs.student_id = $studentID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -143,7 +143,7 @@ class Challenge {
 						INNER JOIN student st ON st.student_id = cs.student_id
 							WHERE cs.student_id = $studentID
 								AND cs.etapa = '$etapa'";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -165,22 +165,22 @@ class Challenge {
 															      ".$data["student_id"].",
 															      ".$data["times_played"].",
 															      ".$data["total_time"].");";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveChallengeSummaryByID($id){
 		$sql = "DELETE FROM challenge_summary WHERE challenge_summary_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveChallengeSummaryBySchoolID($schoolID){
 		$sql = "DELETE FROM challenge_summary WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveChallengeSummaryByStudentID($studentID){
 		$sql = "DELETE FROM challenge_summary WHERE student_id = $studentID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 
 
@@ -198,7 +198,7 @@ class Challenge {
 				 		INNER JOIN school s ON s.school_id = ws.school_id
 						INNER JOIN student st ON st.student_id = ws.student_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -208,7 +208,7 @@ class Challenge {
 						INNER JOIN school s ON s.school_id = ws.school_id
 						INNER JOIN student st ON st.student_id = ws.student_id
 							WHERE ws.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -218,7 +218,7 @@ class Challenge {
 						INNER JOIN school s ON s.school_id = ws.school_id
 						INNER JOIN student st ON st.student_id = ws.student_id
 							WHERE ws.student_id = $studentID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -229,7 +229,7 @@ class Challenge {
 						INNER JOIN student st ON st.student_id = ws.student_id
 							WHERE ws.student_id = $studentID
 								AND ws.etapa = '$etapa'";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -253,22 +253,22 @@ class Challenge {
 														".$data["times_played"].",
 														".$data["total_time"].",
 														".$data["week"].");";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveWeekSummaryByID($id){
 		$sql = "DELETE FROM week_summary WHERE week_summary_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveWeekSummaryBySchoolID($schoolID){
 		$sql = "DELETE FROM week_summary WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveWeekSummaryByStudentID($studentID){
 		$sql = "DELETE FROM week_summary WHERE student_id = $studentID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 }

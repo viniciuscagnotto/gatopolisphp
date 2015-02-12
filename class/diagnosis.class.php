@@ -6,8 +6,8 @@ class Diagnosis {
 
 	private $banco;
 	
-	public function __construct() {
-		$this->banco = banco::getInstance();
+	public function __construct(banco $banco) {
+		$this->banco = $banco;
 	}
 	
 	public function Load($id = ""){
@@ -20,7 +20,7 @@ class Diagnosis {
 				 		INNER JOIN school s ON s.school_id = dls.school_id
 						INNER JOIN student st ON st.student_id = dls.student_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -30,7 +30,7 @@ class Diagnosis {
 						INNER JOIN school s ON s.school_id = dls.school_id
 						INNER JOIN student st ON st.student_id = dls.student_id
 							WHERE dls.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -40,7 +40,7 @@ class Diagnosis {
 						INNER JOIN school s ON s.school_id = dls.school_id
 						INNER JOIN student st ON st.student_id = dls.student_id
 							WHERE dls.student_id = $studentID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -51,7 +51,7 @@ class Diagnosis {
 						INNER JOIN student st ON st.student_id = dls.student_id
 						INNER JOIN student_group stg ON stg.student_group_id = st.student_group_id
 							WHERE st.student_group_id = $studentGroupID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -63,22 +63,22 @@ class Diagnosis {
 																		 ".$data["school_id"].",
 														 				 ".$data["student_id"].",
 														 				 ".$data["start_time"].");";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveByID($id){
 		$sql = "DELETE FROM diagnosis_level_snapshot WHERE diagnosis_level_snapshot_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveBySchoolID($schoolID){
 		$sql = "DELETE FROM diagnosis_level_snapshot WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveByStudentID($studentID){
 		$sql = "DELETE FROM diagnosis_level_snapshot WHERE student_id = $studentID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 }

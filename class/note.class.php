@@ -6,8 +6,8 @@ class Note {
 
 	private $banco;
 	
-	public function __construct() {
-		$this->banco = banco::getInstance();
+	public function __construct(banco $banco) {
+		$this->banco = $banco;
 	}
 	
 	public function Load($id = ""){
@@ -21,7 +21,7 @@ class Note {
 						INNER JOIN student st ON st.student_id = n.student_id
 						INNER JOIN teacher t ON t.teacher_id = n.teacher_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -32,7 +32,7 @@ class Note {
 						INNER JOIN student st ON st.student_id = n.student_id
 						INNER JOIN teacher t ON t.teacher_id = n.teacher_id
 							WHERE n.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -43,7 +43,7 @@ class Note {
 						INNER JOIN student st ON st.student_id = n.student_id
 						INNER JOIN teacher t ON t.teacher_id = n.teacher_id
 							WHERE n.student_id = $studentID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -54,7 +54,7 @@ class Note {
 						INNER JOIN student st ON st.student_id = n.student_id
 						INNER JOIN teacher t ON t.teacher_id = n.teacher_id
 							WHERE n.teacher_id = $teacherID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -68,27 +68,27 @@ class Note {
 													 ".$data["teacher_id"].",
 													 ".$data["student_id"].",
 													 ".$data["written_at"].");";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveByID($id){
 		$sql = "DELETE FROM note WHERE note_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveBySchoolID($schoolID){
 		$sql = "DELETE FROM note WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveByStudentID($studentID){
 		$sql = "DELETE FROM note WHERE student_id = $studentID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveByTeacherID($teacherID){
 		$sql = "DELETE FROM note WHERE teacher_id = $teacherID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 }

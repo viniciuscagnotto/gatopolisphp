@@ -6,8 +6,8 @@ class Student {
 
 	private $banco;
 	
-	public function __construct() {
-		$this->banco = banco::getInstance();
+	public function __construct(banco $banco) {
+		$this->banco = $banco;
 	}
 	
 /*
@@ -22,7 +22,7 @@ class Student {
 					FROM student_group sg
 				 		INNER JOIN school s ON s.school_id = sg.school_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -31,7 +31,7 @@ class Student {
 					FROM student_group sg
 				 		INNER JOIN school s ON s.school_id = sg.school_id
 							WHERE sg.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -45,17 +45,17 @@ class Student {
 													 		   '".$data["series"]."',
 													 		   ".$data["school_id"].",
 													 		   '".$data["deleted_at"]."');";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentGroupByID($id){
 		$sql = "DELETE FROM student_group WHERE student_group_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentGroupBySchoolID($schoolID){
 		$sql = "DELETE FROM student_group WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	
@@ -72,7 +72,7 @@ class Student {
 				 		INNER JOIN school s ON s.school_id = st.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = st.student_group_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -82,7 +82,7 @@ class Student {
 						INNER JOIN school s ON s.school_id = st.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = st.student_group_id
 							WHERE st.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -92,7 +92,7 @@ class Student {
 						INNER JOIN school s ON s.school_id = st.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = st.student_group_id
 							WHERE st.student_group_id = $studentGroupID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -116,22 +116,22 @@ class Student {
 															   '".$data["birth_date"]."',
 															   ".$data["school_id"].",
 															   ".$data["student_group_id"].");";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentByID($id){
 		$sql = "DELETE FROM student WHERE student_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentBySchoolID($schoolID){
 		$sql = "DELETE FROM student WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentByStudentGroupID($studentGroupID){
 		$sql = "DELETE FROM student WHERE student_group_id = $studentGroupID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 
@@ -150,7 +150,7 @@ class Student {
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id
 						INNER JOIN teacher t ON t.teacher_id = sgt.teacher_id
 							WHERE 1=1".$where;
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -161,7 +161,7 @@ class Student {
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id
 						INNER JOIN teacher t ON t.teacher_id = sgt.teacher_id
 							WHERE sgt.school_id = $schoolID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -172,7 +172,7 @@ class Student {
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id
 						INNER JOIN teacher t ON t.teacher_id = sgt.teacher_id
 							WHERE sgt.student_group_id = $studentGroupID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -183,7 +183,7 @@ class Student {
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id
 						INNER JOIN teacher t ON t.teacher_id = sgt.teacher_id
 							WHERE sgt.teacher_id = $teacherID";
-		$result = $banco->executa($sql);
+		$result = $this->banco->executa($sql);
 		return $result;
 	}
 	
@@ -195,27 +195,27 @@ class Student {
 															   ".$data["student_group_id"].",
 													 		   ".$data["teacher_id"].",
 													 		   '".$data["deleted_at"]."');";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentGroupTeacherByID($id){
 		$sql = "DELETE FROM student_group_teacher WHERE student_group_teacher_id = $id";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentGroupTeacherBySchoolID($schoolID){
 		$sql = "DELETE FROM student_group_teacher WHERE school_id = $schoolID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentGroupTeacherByStudentGroupID($studentGroupID){
 		$sql = "DELETE FROM student_group_teacher WHERE student_group_id = $studentGroupID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 	public function RemoveStudentGroupTeacherByTeacherID($teacherID){
 		$sql = "DELETE FROM student_group_teacher WHERE teacher_id = $teacherID";
-		return $banco->executa($sql);
+		return $this->banco->executa($sql);
 	}
 	
 }
