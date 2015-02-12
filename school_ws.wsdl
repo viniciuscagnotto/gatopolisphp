@@ -1,21 +1,97 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
         
-        <message name="Load"/>
-        <message name="LoadResponse">
-                <part name="LoadReturn" type="xsd:string"/>
+        <message name="LoadAll"/>
+        <message name="LoadAllResponse">
+                <part name="LoadAllReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadByID"/>
+        <message name="LoadByIDResponse">
+                <part name="LoadByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadByPublicID"/>
+        <message name="LoadByPublicIDResponse">
+                <part name="LoadByPublicIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadBySyncCode"/>
+        <message name="LoadBySyncCodeResponse">
+                <part name="LoadBySyncCodeReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="Save"/>
+        <message name="SaveResponse">
+                <part name="SaveReturn" type="xsd:string"/>
         </message>
         
         <portType name="SchoolWSPortType">
-                <operation name="Load">
-                        <input message="typens:Load"/>
-                        <output message="typens:LoadResponse"/>
+                <operation name="LoadAll">
+                        <input message="typens:LoadAll"/>
+                        <output message="typens:LoadAllResponse"/>
+                </operation>
+                <operation name="LoadByID">
+                        <input message="typens:LoadByID"/>
+                        <output message="typens:LoadByIDResponse"/>
+                </operation>
+                <operation name="LoadByPublicID">
+                        <input message="typens:LoadByPublicID"/>
+                        <output message="typens:LoadByPublicIDResponse"/>
+                </operation>
+                <operation name="LoadBySyncCode">
+                        <input message="typens:LoadBySyncCode"/>
+                        <output message="typens:LoadBySyncCodeResponse"/>
+                </operation>
+                <operation name="Save">
+                        <input message="typens:Save"/>
+                        <output message="typens:SaveResponse"/>
                 </operation>
         </portType>
         
         <binding name="SchoolWSBinding" type="typens:SchoolWSPortType">
                 <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-                <operation name="Load">
+                <operation name="LoadAll">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadByID">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadByPublicID">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadBySyncCode">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="Save">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

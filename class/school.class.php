@@ -27,7 +27,7 @@ class School {
 	}
 	
 	public function LoadBySyncCode($syncCode){
-		$sql = "SELECT * FROM school WHERE sync_code = '$publicID'";
+		$sql = "SELECT * FROM school WHERE sync_code = '$syncCode'";
 		$result = $this->banco->executa($sql);
 		return $result;
 	}
