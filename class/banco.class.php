@@ -48,7 +48,7 @@ class banco {
 		mysql_select_db($this->banco) or die ("Não foi possível selecionar o banco");
 	}
 
-	function executa($sql) {
+	public function executa($sql) {
 		//echo $sql;
 		if($this->conexao!=1){
 			$this->conecta_banco();
