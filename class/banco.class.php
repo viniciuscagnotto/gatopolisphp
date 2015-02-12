@@ -140,6 +140,7 @@ class banco {
 
 	public function desconecta_banco(){
 		mysql_close($this->conexao);
+		$this->conexao = 0;
 	}
 
 	function ultimo_id(){
