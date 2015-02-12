@@ -44,12 +44,33 @@ class SchoolWS {
         public function Save($input){
         	$banco = new banco();
         	$School = new School($banco);
-        	
-        	$data = "";
-        	
-        	$School->Save($data);
+        	$School->Save(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "1";
+        	return "";
+        }
+        
+        public function RemoveByID($id){
+        	$banco = new banco();
+        	$School = new School($banco);
+        	$rs = $School->RemoveByID($id);
+        	$banco->desconecta_banco();
+        	return "";	
+        }
+        
+        public function RemoveByPublicID($publicID){
+        	$banco = new banco();
+        	$School = new School($banco);
+        	$rs = $School->RemoveByPublicID($publicID);
+        	$banco->desconecta_banco();
+        	return "";
+        }
+        
+        public function RemoveBySyncCode($syncCode){
+        	$banco = new banco();
+        	$School = new School($banco);
+        	$rs = $School->RemoveBySyncCode($syncCode);
+        	$banco->desconecta_banco();
+        	return "";
         }
         
 }

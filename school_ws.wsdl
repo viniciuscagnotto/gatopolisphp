@@ -13,19 +13,46 @@
                 <part name="LoadByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByPublicID"/>
+        <message name="LoadByPublicID">
+        		<part name="publicID" type="xsd:string"/>
+        </message>
         <message name="LoadByPublicIDResponse">
                 <part name="LoadByPublicIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadBySyncCode"/>
+        <message name="LoadBySyncCode">
+        		<part name="syncCode" type="xsd:string"/>
+        </message>
         <message name="LoadBySyncCodeResponse">
                 <part name="LoadBySyncCodeReturn" type="xsd:string"/>
         </message>
         
-        <message name="Save"/>
+        <message name="Save">
+        		<part name="input" type="xsd:string"/>
+        </message>
         <message name="SaveResponse">
                 <part name="SaveReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="RemoveByIDResponse">
+                <part name="RemoveByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveByPublicID">
+        		<part name="publicID" type="xsd:string"/>
+        </message>
+        <message name="RemoveByPublicIDResponse">
+                <part name="RemoveByPublicIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveBySyncCode">
+        		<part name="syncCode" type="xsd:string"/>
+        </message>
+        <message name="RemoveBySyncCodeResponse">
+                <part name="RemoveBySyncCodeReturn" type="xsd:string"/>
         </message>
         
         <portType name="SchoolWSPortType">
@@ -48,6 +75,18 @@
                 <operation name="Save">
                         <input message="typens:Save"/>
                         <output message="typens:SaveResponse"/>
+                </operation>
+                <operation name="RemoveByID">
+                        <input message="typens:RemoveByID"/>
+                        <output message="typens:RemoveByIDResponse"/>
+                </operation>
+                <operation name="RemoveByPublicID">
+                        <input message="typens:RemoveByPublicID"/>
+                        <output message="typens:RemoveByPublicIDResponse"/>
+                </operation>
+                <operation name="RemoveBySyncCode">
+                        <input message="typens:RemoveBySyncCode"/>
+                        <output message="typens:RemoveBySyncCodeResponse"/>
                 </operation>
         </portType>
         
@@ -94,6 +133,36 @@
                 </operation>
                 
                 <operation name="Save">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveByID">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveByPublicID">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveBySyncCode">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
