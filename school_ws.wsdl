@@ -6,7 +6,9 @@
                 <part name="LoadAllReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByID"/>
+        <message name="LoadByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
         <message name="LoadByIDResponse">
                 <part name="LoadByIDReturn" type="xsd:string"/>
         </message>
