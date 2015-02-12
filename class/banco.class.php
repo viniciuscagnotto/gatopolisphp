@@ -11,7 +11,7 @@ class banco {
 	private $host			;
 	private $conexao = 0;
 
-	private function __construct() {
+	public function __construct() {
 		$this->banco = "gatopolisphpdb";
 		$this->usuario_banco = "b33f81945fc541";
 		$this->senha_banco = "a2536739";
@@ -40,7 +40,7 @@ class banco {
         trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
 
-	function conecta_banco() {
+	public function conecta_banco() {
 		if($this->conexao==1)
 			return;
 			
@@ -60,7 +60,7 @@ class banco {
 		return false;
 	}
 
-	function encodeJSON($result){
+	public function encodeJSON($result){
 		$rows = array();
 		while($r = mysql_fetch_assoc($result))
 			$rows[] = $r;
@@ -138,7 +138,7 @@ class banco {
 	}
 
 
-	function desconecta_banco(){
+	public function desconecta_banco(){
 		mysql_close($this->conexao);
 	}
 
