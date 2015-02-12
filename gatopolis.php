@@ -12,7 +12,7 @@ class GatopolisWS {
  
         public function LoadSchools() {
         	$banco = new banco();
-        	$School = new School();
+        	$School = new School($banco);
         	$rs = $School->Load();
         	$string = $banco->encodeJSON($rs);
         	$banco->desconecta_banco();
