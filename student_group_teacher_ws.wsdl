@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+        <message name="LoadAllStudentGroupTeachers"/>
+        <message name="LoadAllStudentGroupTeachersResponse">
+                <part name="LoadAllStudentGroupTeachersReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadStudentGroupTeacherByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="LoadStudentGroupTeacherByIDResponse">
+                <part name="LoadStudentGroupTeacherByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadStudentGroupTeacherBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="LoadStudentGroupTeacherBySchoolIDResponse">
+                <part name="LoadStudentGroupTeacherBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadStudentGroupTeacherByStudentGroupID">
+        		<part name="studentGroupID" type="xsd:int"/>
+        </message>
+        <message name="LoadStudentGroupTeacherByStudentGroupIDResponse">
+                <part name="LoadStudentGroupTeacherByStudentGroupIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadStudentGroupTeacherByTeacherID">
+        		<part name="teacherID" type="xsd:int"/>
+        </message>
+        <message name="LoadStudentGroupTeacherByTeacherIDResponse">
+                <part name="LoadStudentGroupTeacherByTeacherIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="SaveStudentGroupTeacher">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="SaveStudentGroupTeacherResponse">
+                <part name="SaveStudentGroupTeacherReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveStudentGroupTeacherByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="RemoveStudentGroupTeacherByIDResponse">
+                <part name="RemoveStudentGroupTeacherByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveStudentGroupTeacherBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="RemoveStudentGroupTeacherBySchoolIDResponse">
+                <part name="RemoveStudentGroupTeacherBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveStudentGroupTeacherByStudentGroupID">
+        		<part name="studentGroupID" type="xsd:int"/>
+        </message>
+        <message name="RemoveStudentGroupTeacherByStudentGroupIDResponse">
+                <part name="RemoveStudentGroupTeacherByStudentGroupIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveStudentGroupTeacherByTeacherID">
+        		<part name="teacherID" type="xsd:int"/>
+        </message>
+        <message name="RemoveStudentGroupTeacherByTeacherIDResponse">
+                <part name="RemoveStudentGroupTeacherByTeacherIDReturn" type="xsd:string"/>
+        </message>
+       
+        
+        <portType name="StudentGroupTeacherWSPortType">
+                <operation name="LoadAllStudentGroupTeachers">
+                        <input message="typens:LoadAllStudentGroupTeachers"/>
+                        <output message="typens:LoadAllStudentGroupTeachersResponse"/>
+                </operation>
+                <operation name="LoadStudentGroupTeacherByID">
+                        <input message="typens:LoadStudentGroupTeacherByID"/>
+                        <output message="typens:LoadStudentGroupTeacherByIDResponse"/>
+                </operation>
+                <operation name="LoadStudentGroupTeacherBySchoolID">
+                        <input message="typens:LoadStudentGroupTeacherBySchoolID"/>
+                        <output message="typens:LoadStudentGroupTeacherBySchoolIDResponse"/>
+                </operation>
+                <operation name="LoadStudentGroupTeacherByStudentGroupID">
+                        <input message="typens:LoadStudentGroupTeacherByStudentGroupID"/>
+                        <output message="typens:LoadStudentGroupTeacherByStudentGroupIDResponse"/>
+                </operation>
+                <operation name="LoadStudentGroupTeacherByTeacherID">
+                        <input message="typens:LoadStudentGroupTeacherByTeacherID"/>
+                        <output message="typens:LoadStudentGroupTeacherByTeacherIDResponse"/>
+                </operation>
+                <operation name="SaveStudentGroupTeacher">
+                        <input message="typens:SaveStudentGroupTeacher"/>
+                        <output message="typens:SaveStudentGroupTeacherResponse"/>
+                </operation>
+                <operation name="RemoveStudentGroupTeacherByID">
+                        <input message="typens:RemoveStudentGroupTeacherByID"/>
+                        <output message="typens:RemoveStudentGroupTeacherByIDResponse"/>
+                </operation>
+                <operation name="RemoveStudentGroupTeacherBySchoolID">
+                        <input message="typens:RemoveStudentGroupTeacherBySchoolID"/>
+                        <output message="typens:RemoveStudentGroupTeacherBySchoolIDResponse"/>
+                </operation>
+                <operation name="RemoveStudentGroupTeacherByStudentGroupID">
+                        <input message="typens:RemoveStudentGroupTeacherByStudentGroupID"/>
+                        <output message="typens:RemoveStudentGroupTeacherByStudentGroupIDResponse"/>
+                </operation> 
+                <operation name="RemoveStudentGroupTeacherByTeacherID">
+                        <input message="typens:RemoveStudentGroupTeacherByTeacherID"/>
+                        <output message="typens:RemoveStudentGroupTeacherByTeacherIDResponse"/>
+                </operation>
+        </portType>
+        
+        <binding name="StudentGroupTeacherWSBinding" type="typens:StudentGroupTeacherWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                <operation name="LoadAllStudentGroupTeachers">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadStudentGroupTeacherByID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadStudentGroupTeacherBySchoolID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadStudentGroupTeacherByStudentGroupID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadStudentGroupTeacherByTeacherID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="SaveStudentGroupTeacher">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveStudentGroupTeacherByID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveStudentGroupTeacherBySchoolID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveStudentGroupTeacherByStudentGroupID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveStudentGroupTeacherByTeacherID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+        </binding>
+        
+        <service name="ServiceService">
+                <port name="StudentGroupTeacherWSPort" binding="typens:StudentGroupTeacherWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/student_group_teacher_ws.php"/>
+                </port>
+        </service>
+</definitions>
