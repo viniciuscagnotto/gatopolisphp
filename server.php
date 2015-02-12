@@ -1,5 +1,7 @@
 <?php
  
+include "banco.class.php";
+
 class UserFacade {
  
         /**
@@ -17,4 +19,5 @@ class UserFacade {
 $oSoapServer = new SoapServer('service.wsdl');
 $oSoapServer->setClass("UserFacade");
 $oSoapServer->handle();
+
 ?>
