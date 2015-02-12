@@ -41,7 +41,7 @@ class banco {
     }
 
 	function conecta_banco() {
-		if($this->conexao==1){
+		if($this->conexao==1)
 			return;
 			
 		$this->conexao= @mysql_connect($this->host, $this->usuario_banco, $this->senha_banco) or die ("Não foi possível conectar no banco de dados");
@@ -60,6 +60,13 @@ class banco {
 		return false;
 	}
 
+	function encodeJSON($result){
+		$rows = array();
+		while($r = mysql_fetch_assoc($result))
+			$rows[] = $r;
+		return json_encode($rows);
+	}
+	
 	function sql_array($resultado){
 		if($this->contagem($resultado)>0){
 			$valor=mysql_fetch_array($resultado);

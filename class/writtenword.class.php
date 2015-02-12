@@ -33,7 +33,7 @@ class WrittenWord {
 					FROM written_word wd 
 				   		INNER JOIN school s ON s.school_id = wd.school_id
 						INNER JOIN student st ON st.student_id = wd.student_id
-							WHERE wd.student_id = $studentID".$limit
+							WHERE wd.student_id = $studentID".$limit;
 		$result = $banco->executa($sql);
 		return $result;
 	}
