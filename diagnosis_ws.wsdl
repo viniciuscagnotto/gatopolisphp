@@ -194,7 +194,7 @@
                 </operation>
         </binding>
         
-        <service name="ServiceService">
+        <service name="DiagnosisService">
                 <port name="DiagnosisWSPort" binding="typens:DiagnosisWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/diagnosis_ws.php"/>
                 </port>

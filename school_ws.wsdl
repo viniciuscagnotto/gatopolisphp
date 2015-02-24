@@ -194,7 +194,7 @@
                 </operation>
         </binding>
         
-        <service name="ServiceService">
+        <service name="SchoolService">
                 <port name="SchoolWSPort" binding="typens:SchoolWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/school_ws.php"/>
                 </port>

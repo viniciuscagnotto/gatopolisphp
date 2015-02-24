@@ -201,7 +201,7 @@
                 
         </binding>
         
-        <service name="ServiceService">
+        <service name="ChallengeSummaryService">
                 <port name="ChallengeSummaryWSPort" binding="typens:ChallengeSummaryWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/challenge_summary_ws.php"/>
                 </port>

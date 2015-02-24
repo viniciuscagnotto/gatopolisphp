@@ -237,7 +237,7 @@
                 </operation>
         </binding>
         
-        <service name="ServiceService">
+        <service name="NoteService">
                 <port name="NoteWSPort" binding="typens:NoteWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/note_ws.php"/>
                 </port>

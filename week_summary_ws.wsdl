@@ -197,7 +197,7 @@
                  
         </binding>
         
-        <service name="ServiceService">
+        <service name="WeekSummaryService">
                 <port name="WeekSummaryWSPort" binding="typens:WeekSummaryWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/week_summary_ws.php"/>
                 </port>

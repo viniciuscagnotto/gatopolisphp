@@ -133,7 +133,7 @@
                  
         </binding>
         
-        <service name="ServiceService">
+        <service name="StudentGroupService">
                 <port name="StudentGroupWSPort" binding="typens:StudentGroupWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/student_group_ws.php"/>
                 </port>

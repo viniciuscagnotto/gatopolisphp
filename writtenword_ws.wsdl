@@ -174,7 +174,7 @@
                 </operation>
         </binding>
         
-        <service name="ServiceService">
+        <service name="WrittenWordService">
                 <port name="WrittenWordWSPort" binding="typens:WrittenWordWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/writtenword_ws.php"/>
                 </port>

@@ -216,7 +216,7 @@
                  
         </binding>
         
-        <service name="ServiceService">
+        <service name="StudentGroupTeacherService">
                 <port name="StudentGroupTeacherWSPort" binding="typens:StudentGroupTeacherWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/student_group_teacher_ws.php"/>
                 </port>
