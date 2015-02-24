@@ -197,7 +197,7 @@
                 </operation>
         </binding>
         
-        <service name="ServiceService">
+        <service name="ChallengeOutputService">
                 <port name="ChallengeOutputWSPort" binding="typens:ChallengeOutputWSBinding">
                         <soap:address location="http://gatopolisphp.azurewebsites.net/challenge_output_ws.php"/>
                 </port>
