@@ -1,99 +1,99 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
         
-        <message name="LoadAll"/>
-        <message name="LoadAllResponse">
-                <part name="LoadAllReturn" type="xsd:string"/>
+        <message name="LoadAllWrittenWords"/>
+        <message name="LoadAllWrittenWordsResponse">
+                <part name="LoadAllWrittenWordsReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByID">
+        <message name="LoadWrittenWordsByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="LoadByIDResponse">
-                <part name="LoadByIDReturn" type="xsd:string"/>
+        <message name="LoadWrittenWordsByIDResponse">
+                <part name="LoadWrittenWordsByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadBySchoolID">
+        <message name="LoadWrittenWordsBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="LoadBySchoolIDResponse">
-                <part name="LoadBySchoolIDReturn" type="xsd:string"/>
+        <message name="LoadWrittenWordsBySchoolIDResponse">
+                <part name="LoadWrittenWordsBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByStudentID">
+        <message name="LoadWrittenWordsByStudentID">
         		<part name="studentID" type="xsd:int"/>
         		<part name="amount" type="xsd:int"/>
         </message>
-        <message name="LoadByStudentIDResponse">
-                <part name="LoadByStudentIDReturn" type="xsd:string"/>
+        <message name="LoadWrittenWordsByStudentIDResponse">
+                <part name="LoadWrittenWordsByStudentIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="Save">
+        <message name="SaveWrittenWords">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="SaveResponse">
-                <part name="SaveReturn" type="xsd:string"/>
+        <message name="SaveWrittenWordsResponse">
+                <part name="SaveWrittenWordsReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByID">
+        <message name="RemoveWrittenWordsByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="RemoveByIDResponse">
-                <part name="RemoveByIDReturn" type="xsd:string"/>
+        <message name="RemoveWrittenWordsByIDResponse">
+                <part name="RemoveWrittenWordsByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveBySchoolID">
+        <message name="RemoveWrittenWordsBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="RemoveBySchoolIDResponse">
-                <part name="RemoveBySchoolIDReturn" type="xsd:string"/>
+        <message name="RemoveWrittenWordsBySchoolIDResponse">
+                <part name="RemoveWrittenWordsBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByStudentID">
+        <message name="RemoveWrittenWordsByStudentID">
         		<part name="studentID" type="xsd:int"/>
         </message>
-        <message name="RemoveByStudentIDResponse">
-                <part name="RemoveByStudentIDReturn" type="xsd:string"/>
+        <message name="RemoveWrittenWordsByStudentIDResponse">
+                <part name="RemoveWrittenWordsByStudentIDReturn" type="xsd:string"/>
         </message>
         
         <portType name="WrittenWordWSPortType">
-                <operation name="LoadAll">
-                        <input message="typens:LoadAll"/>
-                        <output message="typens:LoadAllResponse"/>
+                <operation name="LoadAllWrittenWords">
+                        <input message="typens:LoadAllWrittenWords"/>
+                        <output message="typens:LoadAllWrittenWordsResponse"/>
                 </operation>
-                <operation name="LoadByID">
-                        <input message="typens:LoadByID"/>
-                        <output message="typens:LoadByIDResponse"/>
+                <operation name="LoadWrittenWordsByID">
+                        <input message="typens:LoadWrittenWordsByID"/>
+                        <output message="typens:LoadWrittenWordsByIDResponse"/>
                 </operation>
-                <operation name="LoadBySchoolID">
-                        <input message="typens:LoadBySchoolID"/>
-                        <output message="typens:LoadBySchoolIDResponse"/>
+                <operation name="LoadWrittenWordsBySchoolID">
+                        <input message="typens:LoadWrittenWordsBySchoolID"/>
+                        <output message="typens:LoadWrittenWordsBySchoolIDResponse"/>
                 </operation>
-                <operation name="LoadByStudentID">
-                        <input message="typens:LoadByStudentID"/>
-                        <output message="typens:LoadByStudentIDResponse"/>
+                <operation name="LoadWrittenWordsByStudentID">
+                        <input message="typens:LoadWrittenWordsByStudentID"/>
+                        <output message="typens:LoadWrittenWordsByStudentIDResponse"/>
                 </operation>
-                <operation name="Save">
-                        <input message="typens:Save"/>
-                        <output message="typens:SaveResponse"/>
+                <operation name="SaveWrittenWords">
+                        <input message="typens:SaveWrittenWords"/>
+                        <output message="typens:SaveWrittenWordsResponse"/>
                 </operation>
-                <operation name="RemoveByID">
-                        <input message="typens:RemoveByID"/>
-                        <output message="typens:RemoveByIDResponse"/>
+                <operation name="RemoveWrittenWordsByID">
+                        <input message="typens:RemoveWrittenWordsByID"/>
+                        <output message="typens:RemoveWrittenWordsByIDResponse"/>
                 </operation>
-                <operation name="RemoveBySchoolID">
-                        <input message="typens:RemoveBySchoolID"/>
-                        <output message="typens:RemoveBySchoolIDResponse"/>
+                <operation name="RemoveWrittenWordsBySchoolID">
+                        <input message="typens:RemoveWrittenWordsBySchoolID"/>
+                        <output message="typens:RemoveWrittenWordsBySchoolIDResponse"/>
                 </operation>
-                <operation name="RemoveByStudentID">
-                        <input message="typens:RemoveByStudentID"/>
-                        <output message="typens:RemoveByStudentIDResponse"/>
+                <operation name="RemoveWrittenWordsByStudentID">
+                        <input message="typens:RemoveWrittenWordsByStudentID"/>
+                        <output message="typens:RemoveWrittenWordsByStudentIDResponse"/>
                 </operation>
         </portType>
         
         <binding name="WrittenWordWSBinding" type="typens:WrittenWordWSPortType">
                 <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-                <operation name="LoadAll">
+                <operation name="LoadAllWrittenWords">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -103,7 +103,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByID">
+                <operation name="LoadWrittenWordsByID">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -113,7 +113,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadBySchoolID">
+                <operation name="LoadWrittenWordsBySchoolID">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -123,7 +123,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByStudentID">
+                <operation name="LoadWrittenWordsByStudentID">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -133,7 +133,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Save">
+                <operation name="SaveWrittenWords">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -143,7 +143,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByID">
+                <operation name="RemoveWrittenWordsByID">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -153,7 +153,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveBySchoolID">
+                <operation name="RemoveWrittenWordsBySchoolID">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -163,7 +163,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByStudentID">
+                <operation name="RemoveWrittenWordsByStudentID">
                         <soap:operation soapAction="urn:WrittenWordWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

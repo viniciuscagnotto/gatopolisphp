@@ -5,7 +5,7 @@ include_once "class/teacher.class.php";
 
 class TeacherWS {
  
-        public function LoadAll() {
+        public function LoadAllTeachers() {
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$rs = $Teacher->Load();
@@ -14,7 +14,7 @@ class TeacherWS {
         	return $string;
         }
         
-        public function LoadByID($id) {
+        public function LoadTeachersByID($id) {
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$rs = $Teacher->Load($id);
@@ -23,7 +23,7 @@ class TeacherWS {
         	return $string;
         }
         
-        public function LoadBySchoolID($schoolID) {
+        public function LoadTeachersBySchoolID($schoolID) {
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$rs = $Teacher->LoadBySchoolID($schoolID);
@@ -32,7 +32,7 @@ class TeacherWS {
         	return $string;
         }
         
-        public function LoadByLogin($email, $passcode) {
+        public function LoadTeachersByLogin($email, $passcode) {
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$rs = $Teacher->LoadByLogin($email, $passcode);
@@ -41,7 +41,7 @@ class TeacherWS {
         	return $string;
         }
         
-        public function Save($input){
+        public function SaveTeachers($input){
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$Teacher->Save(json_decode($input, true));
@@ -49,7 +49,7 @@ class TeacherWS {
         	return "";
         }
         
-        public function RemoveByID($id){
+        public function RemoveTeachersByID($id){
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$rs = $Teacher->RemoveByID($id);
@@ -57,7 +57,7 @@ class TeacherWS {
         	return "";	
         }
         
-        public function RemoveBySchoolID($schoolID){
+        public function RemoveTeachersBySchoolID($schoolID){
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$rs = $Teacher->RemoveBySchoolID($schoolID);
@@ -65,7 +65,7 @@ class TeacherWS {
         	return "";
         }
         
-        public function Update($input){
+        public function UpdateTeachers($input){
         	$banco = new banco();
         	$Teacher = new Teacher($banco);
         	$Teacher->Update(json_decode($input, true));

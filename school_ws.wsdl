@@ -1,109 +1,109 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
         
-        <message name="LoadAll"/>
-        <message name="LoadAllResponse">
-                <part name="LoadAllReturn" type="xsd:string"/>
+        <message name="LoadAllSchools"/>
+        <message name="LoadAllSchoolsResponse">
+                <part name="LoadAllSchoolsReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByID">
+        <message name="LoadSchoolsByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="LoadByIDResponse">
-                <part name="LoadByIDReturn" type="xsd:string"/>
+        <message name="LoadSchoolsByIDResponse">
+                <part name="LoadSchoolsByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByPublicID">
+        <message name="LoadSchoolsByPublicID">
         		<part name="publicID" type="xsd:string"/>
         </message>
-        <message name="LoadByPublicIDResponse">
-                <part name="LoadByPublicIDReturn" type="xsd:string"/>
+        <message name="LoadSchoolsByPublicIDResponse">
+                <part name="LoadSchoolsByPublicIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadBySyncCode">
+        <message name="LoadSchoolsBySyncCode">
         		<part name="syncCode" type="xsd:string"/>
         </message>
-        <message name="LoadBySyncCodeResponse">
-                <part name="LoadBySyncCodeReturn" type="xsd:string"/>
+        <message name="LoadSchoolsBySyncCodeResponse">
+                <part name="LoadSchoolsBySyncCodeReturn" type="xsd:string"/>
         </message>
         
-        <message name="Save">
+        <message name="SaveSchools">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="SaveResponse">
-                <part name="SaveReturn" type="xsd:string"/>
+        <message name="SaveSchoolsResponse">
+                <part name="SaveSchoolsReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByID">
+        <message name="RemoveSchoolsByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="RemoveByIDResponse">
-                <part name="RemoveByIDReturn" type="xsd:string"/>
+        <message name="RemoveSchoolsByIDResponse">
+                <part name="RemoveSchoolsByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByPublicID">
+        <message name="RemoveSchoolsByPublicID">
         		<part name="publicID" type="xsd:string"/>
         </message>
-        <message name="RemoveByPublicIDResponse">
-                <part name="RemoveByPublicIDReturn" type="xsd:string"/>
+        <message name="RemoveSchoolsByPublicIDResponse">
+                <part name="RemoveSchoolsByPublicIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveBySyncCode">
+        <message name="RemoveSchoolsBySyncCode">
         		<part name="syncCode" type="xsd:string"/>
         </message>
-        <message name="RemoveBySyncCodeResponse">
-                <part name="RemoveBySyncCodeReturn" type="xsd:string"/>
+        <message name="RemoveSchoolsBySyncCodeResponse">
+                <part name="RemoveSchoolsBySyncCodeReturn" type="xsd:string"/>
         </message>
         
-        <message name="Update">
+        <message name="UpdateSchools">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="UpdateResponse">
-                <part name="UpdateReturn" type="xsd:string"/>
+        <message name="UpdateSchoolsResponse">
+                <part name="UpdateSchoolsReturn" type="xsd:string"/>
         </message>
         
         <portType name="SchoolWSPortType">
-                <operation name="LoadAll">
-                        <input message="typens:LoadAll"/>
-                        <output message="typens:LoadAllResponse"/>
+                <operation name="LoadAllSchools">
+                        <input message="typens:LoadAllSchools"/>
+                        <output message="typens:LoadAllSchoolsResponse"/>
                 </operation>
-                <operation name="LoadByID">
-                        <input message="typens:LoadByID"/>
-                        <output message="typens:LoadByIDResponse"/>
+                <operation name="LoadSchoolsByID">
+                        <input message="typens:LoadSchoolsByID"/>
+                        <output message="typens:LoadSchoolsByIDResponse"/>
                 </operation>
-                <operation name="LoadByPublicID">
-                        <input message="typens:LoadByPublicID"/>
-                        <output message="typens:LoadByPublicIDResponse"/>
+                <operation name="LoadSchoolsByPublicID">
+                        <input message="typens:LoadSchoolsByPublicID"/>
+                        <output message="typens:LoadSchoolsByPublicIDResponse"/>
                 </operation>
-                <operation name="LoadBySyncCode">
-                        <input message="typens:LoadBySyncCode"/>
-                        <output message="typens:LoadBySyncCodeResponse"/>
+                <operation name="LoadSchoolsBySyncCode">
+                        <input message="typens:LoadSchoolsBySyncCode"/>
+                        <output message="typens:LoadSchoolsBySyncCodeResponse"/>
                 </operation>
-                <operation name="Save">
-                        <input message="typens:Save"/>
-                        <output message="typens:SaveResponse"/>
+                <operation name="SaveSchools">
+                        <input message="typens:SaveSchools"/>
+                        <output message="typens:SaveSchoolsResponse"/>
                 </operation>
-                <operation name="RemoveByID">
-                        <input message="typens:RemoveByID"/>
-                        <output message="typens:RemoveByIDResponse"/>
+                <operation name="RemoveSchoolsByID">
+                        <input message="typens:RemoveSchoolsByID"/>
+                        <output message="typens:RemoveSchoolsByIDResponse"/>
                 </operation>
-                <operation name="RemoveByPublicID">
-                        <input message="typens:RemoveByPublicID"/>
-                        <output message="typens:RemoveByPublicIDResponse"/>
+                <operation name="RemoveSchoolsByPublicID">
+                        <input message="typens:RemoveSchoolsByPublicID"/>
+                        <output message="typens:RemoveSchoolsByPublicIDResponse"/>
                 </operation>
-                <operation name="RemoveBySyncCode">
-                        <input message="typens:RemoveBySyncCode"/>
-                        <output message="typens:RemoveBySyncCodeResponse"/>
+                <operation name="RemoveSchoolsBySyncCode">
+                        <input message="typens:RemoveSchoolsBySyncCode"/>
+                        <output message="typens:RemoveSchoolsBySyncCodeResponse"/>
                 </operation>
-                <operation name="Update">
-                        <input message="typens:Update"/>
-                        <output message="typens:UpdateResponse"/>
+                <operation name="UpdateSchools">
+                        <input message="typens:UpdateSchools"/>
+                        <output message="typens:UpdateSchoolsResponse"/>
                 </operation>
         </portType>
         
         <binding name="SchoolWSBinding" type="typens:SchoolWSPortType">
                 <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-                <operation name="LoadAll">
+                <operation name="LoadAllSchools">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -113,7 +113,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByID">
+                <operation name="LoadSchoolsByID">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -123,7 +123,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByPublicID">
+                <operation name="LoadSchoolsByPublicID">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -133,7 +133,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadBySyncCode">
+                <operation name="LoadSchoolsBySyncCode">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -143,7 +143,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Save">
+                <operation name="SaveSchools">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -153,7 +153,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByID">
+                <operation name="RemoveSchoolsByID">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -163,7 +163,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByPublicID">
+                <operation name="RemoveSchoolsByPublicID">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -173,7 +173,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveBySyncCode">
+                <operation name="RemoveSchoolsBySyncCode">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -183,7 +183,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Update">
+                <operation name="UpdateSchools">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

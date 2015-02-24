@@ -1,132 +1,132 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
         
-        <message name="LoadAll"/>
-        <message name="LoadAllResponse">
-                <part name="LoadAllReturn" type="xsd:string"/>
+        <message name="LoadAllNotes"/>
+        <message name="LoadAllNotesResponse">
+                <part name="LoadAllNotesReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByID">
+        <message name="LoadNotesByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="LoadByIDResponse">
-                <part name="LoadByIDReturn" type="xsd:string"/>
+        <message name="LoadNotesByIDResponse">
+                <part name="LoadNotesByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadBySchoolID">
+        <message name="LoadNotesBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="LoadBySchoolIDResponse">
-                <part name="LoadBySchoolIDReturn" type="xsd:string"/>
+        <message name="LoadNotesBySchoolIDResponse">
+                <part name="LoadNotesBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByStudentID">
+        <message name="LoadNotesByStudentID">
         		<part name="studentID" type="xsd:int"/>
         </message>
-        <message name="LoadByStudentIDResponse">
-                <part name="LoadByStudentIDReturn" type="xsd:string"/>
+        <message name="LoadNotesByStudentIDResponse">
+                <part name="LoadNotesByStudentIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByTeacherID">
+        <message name="LoadNotesByTeacherID">
         		<part name="teacherID" type="xsd:int"/>
         </message>
-        <message name="LoadByTeacherIDResponse">
-                <part name="LoadByTeacherIDReturn" type="xsd:string"/>
+        <message name="LoadNotesByTeacherIDResponse">
+                <part name="LoadNotesByTeacherIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="Save">
+        <message name="SaveNotes">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="SaveResponse">
-                <part name="SaveReturn" type="xsd:string"/>
+        <message name="SaveNotesResponse">
+                <part name="SaveNotesReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByID">
+        <message name="RemoveNotesByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="RemoveByIDResponse">
-                <part name="RemoveByIDReturn" type="xsd:string"/>
+        <message name="RemoveNotesByIDResponse">
+                <part name="RemoveNotesByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveBySchoolID">
+        <message name="RemoveNotesBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="RemoveBySchoolIDResponse">
-                <part name="RemoveBySchoolIDReturn" type="xsd:string"/>
+        <message name="RemoveNotesBySchoolIDResponse">
+                <part name="RemoveNotesBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByStudentID">
+        <message name="RemoveNotesByStudentID">
         		<part name="studentID" type="xsd:int"/>
         </message>
-        <message name="RemoveByStudentIDResponse">
-                <part name="RemoveByStudentIDReturn" type="xsd:string"/>
+        <message name="RemoveNotesByStudentIDResponse">
+                <part name="RemoveNotesByStudentIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByTeacherID">
+        <message name="RemoveNotesByTeacherID">
         		<part name="teacherID" type="xsd:int"/>
         </message>
-        <message name="RemoveByTeacherIDResponse">
-                <part name="RemoveByTeacherIDReturn" type="xsd:string"/>
+        <message name="RemoveNotesByTeacherIDResponse">
+                <part name="RemoveNotesByTeacherIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="Update">
+        <message name="UpdateNotes">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="UpdateResponse">
-                <part name="UpdateReturn" type="xsd:string"/>
+        <message name="UpdateNotesResponse">
+                <part name="UpdateNotesReturn" type="xsd:string"/>
         </message>
         
         <portType name="NoteWSPortType">
-                <operation name="LoadAll">
-                        <input message="typens:LoadAll"/>
-                        <output message="typens:LoadAllResponse"/>
+                <operation name="LoadAllNotes">
+                        <input message="typens:LoadAllNotes"/>
+                        <output message="typens:LoadAllNotesResponse"/>
                 </operation>
-                <operation name="LoadByID">
-                        <input message="typens:LoadByID"/>
-                        <output message="typens:LoadByIDResponse"/>
+                <operation name="LoadNotesByID">
+                        <input message="typens:LoadNotesByID"/>
+                        <output message="typens:LoadNotesByIDResponse"/>
                 </operation>
-                <operation name="LoadBySchoolID">
-                        <input message="typens:LoadBySchoolID"/>
-                        <output message="typens:LoadBySchoolIDResponse"/>
+                <operation name="LoadNotesBySchoolID">
+                        <input message="typens:LoadNotesBySchoolID"/>
+                        <output message="typens:LoadNotesBySchoolIDResponse"/>
                 </operation>
-                <operation name="LoadByStudentID">
-                        <input message="typens:LoadByStudentID"/>
-                        <output message="typens:LoadByStudentIDResponse"/>
+                <operation name="LoadNotesByStudentID">
+                        <input message="typens:LoadNotesByStudentID"/>
+                        <output message="typens:LoadNotesByStudentIDResponse"/>
                 </operation>
-                <operation name="LoadByTeacherID">
-                        <input message="typens:LoadByTeacherID"/>
-                        <output message="typens:LoadByTeacherIDResponse"/>
+                <operation name="LoadNotesByTeacherID">
+                        <input message="typens:LoadNotesByTeacherID"/>
+                        <output message="typens:LoadNotesByTeacherIDResponse"/>
                 </operation>
-                <operation name="Save">
-                        <input message="typens:Save"/>
-                        <output message="typens:SaveResponse"/>
+                <operation name="SaveNotes">
+                        <input message="typens:SaveNotes"/>
+                        <output message="typens:SaveNotesResponse"/>
                 </operation>
-                <operation name="RemoveByID">
-                        <input message="typens:RemoveByID"/>
-                        <output message="typens:RemoveByIDResponse"/>
+                <operation name="RemoveNotesByID">
+                        <input message="typens:RemoveNotesByID"/>
+                        <output message="typens:RemoveNotesByIDResponse"/>
                 </operation>
-                <operation name="RemoveBySchoolID">
-                        <input message="typens:RemoveBySchoolID"/>
-                        <output message="typens:RemoveBySchoolIDResponse"/>
+                <operation name="RemoveNotesBySchoolID">
+                        <input message="typens:RemoveNotesBySchoolID"/>
+                        <output message="typens:RemoveNotesBySchoolIDResponse"/>
                 </operation>
-                <operation name="RemoveByStudentID">
-                        <input message="typens:RemoveByStudentID"/>
-                        <output message="typens:RemoveByStudentIDResponse"/>
+                <operation name="RemoveNotesByStudentID">
+                        <input message="typens:RemoveNotesByStudentID"/>
+                        <output message="typens:RemoveNotesByStudentIDResponse"/>
                 </operation>
-                <operation name="RemoveByTeacherID">
-                        <input message="typens:RemoveByTeacherID"/>
-                        <output message="typens:RemoveByTeacherIDResponse"/>
+                <operation name="RemoveNotesByTeacherID">
+                        <input message="typens:RemoveNotesByTeacherID"/>
+                        <output message="typens:RemoveNotesByTeacherIDResponse"/>
                 </operation>
-                <operation name="Update">
-                        <input message="typens:Update"/>
-                        <output message="typens:UpdateResponse"/>
+                <operation name="UpdateNotes">
+                        <input message="typens:UpdateNotes"/>
+                        <output message="typens:UpdateNotesResponse"/>
                 </operation>
                 
         </portType>
         
         <binding name="NoteWSBinding" type="typens:NoteWSPortType">
                 <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-                <operation name="LoadAll">
+                <operation name="LoadAllNotes">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -136,7 +136,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByID">
+                <operation name="LoadNotesByID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -146,7 +146,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadBySchoolID">
+                <operation name="LoadNotesBySchoolID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -156,7 +156,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByStudentID">
+                <operation name="LoadNotesByStudentID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -166,7 +166,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByTeacherID">
+                <operation name="LoadNotesByTeacherID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -176,7 +176,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Save">
+                <operation name="SaveNotes">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -186,7 +186,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByID">
+                <operation name="RemoveNotesByID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -196,7 +196,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveBySchoolID">
+                <operation name="RemoveNotesBySchoolID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -206,7 +206,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByStudentID">
+                <operation name="RemoveNotesByStudentID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -216,7 +216,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByTeacherID">
+                <operation name="RemoveNotesByTeacherID">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -226,7 +226,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Update">
+                <operation name="UpdateNotes">
                         <soap:operation soapAction="urn:NoteWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

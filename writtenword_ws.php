@@ -5,7 +5,7 @@ include_once "class/writtenword.class.php";
 
 class WrittenWordWS {
  
-        public function LoadAll() {
+        public function LoadAllWrittenWords() {
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->Load();
@@ -14,7 +14,7 @@ class WrittenWordWS {
         	return $string;
         }
         
-        public function LoadByID($id) {
+        public function LoadWrittenWordsByID($id) {
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->Load($id);
@@ -23,7 +23,7 @@ class WrittenWordWS {
         	return $string;
         }
         
-        public function LoadBySchoolID($schoolID) {
+        public function LoadWrittenWordsBySchoolID($schoolID) {
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->LoadBySchoolID($schoolID);
@@ -32,7 +32,7 @@ class WrittenWordWS {
         	return $string;
         }
         
-        public function LoadByStudentID($studentID, $amount) {
+        public function LoadWrittenWordsByStudentID($studentID, $amount) {
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->LoadByStudentID($studentID, $amount);
@@ -41,7 +41,7 @@ class WrittenWordWS {
         	return $string;
         }
         
-        public function Save($input){
+        public function SaveWrittenWords($input){
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$WrittenWord->Save(json_decode($input, true));
@@ -49,7 +49,7 @@ class WrittenWordWS {
         	return "";
         }
         
-        public function RemoveByID($id){
+        public function RemoveWrittenWordsByID($id){
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->RemoveByID($id);
@@ -57,7 +57,7 @@ class WrittenWordWS {
         	return "";	
         }
         
-        public function RemoveBySchoolID($schoolID){
+        public function RemoveWrittenWordsBySchoolID($schoolID){
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->RemoveBySchoolID($schoolID);
@@ -65,7 +65,7 @@ class WrittenWordWS {
         	return "";
         }
         
-        public function RemoveByStudentID($studentID){
+        public function RemoveWrittenWordsByStudentID($studentID){
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->RemoveByStudentID($studentID);

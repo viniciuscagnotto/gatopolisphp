@@ -1,109 +1,109 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
         
-        <message name="LoadAll"/>
-        <message name="LoadAllResponse">
-                <part name="LoadAllReturn" type="xsd:string"/>
+        <message name="LoadAllDiagnosis"/>
+        <message name="LoadAllDiagnosisResponse">
+                <part name="LoadAllDiagnosisReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByID">
+        <message name="LoadDiagnosisByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="LoadByIDResponse">
-                <part name="LoadByIDReturn" type="xsd:string"/>
+        <message name="LoadDiagnosisByIDResponse">
+                <part name="LoadDiagnosisByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadBySchoolID">
+        <message name="LoadDiagnosisBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="LoadBySchoolIDResponse">
-                <part name="LoadBySchoolIDReturn" type="xsd:string"/>
+        <message name="LoadDiagnosisBySchoolIDResponse">
+                <part name="LoadDiagnosisBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByStudentID">
+        <message name="LoadDiagnosisByStudentID">
         		<part name="studentID" type="xsd:int"/>
         </message>
-        <message name="LoadByStudentIDResponse">
-                <part name="LoadByStudentIDReturn" type="xsd:string"/>
+        <message name="LoadDiagnosisByStudentIDResponse">
+                <part name="LoadDiagnosisByStudentIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByStudentGroupID">
+        <message name="LoadDiagnosisByStudentGroupID">
         		<part name="studentGroupID" type="xsd:int"/>
         </message>
-        <message name="LoadByStudentGroupIDResponse">
-                <part name="LoadByStudentGroupIDReturn" type="xsd:string"/>
+        <message name="LoadDiagnosisByStudentGroupIDResponse">
+                <part name="LoadDiagnosisByStudentGroupIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="Save">
+        <message name="SaveDiagnosis">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="SaveResponse">
-                <part name="SaveReturn" type="xsd:string"/>
+        <message name="SaveDiagnosisResponse">
+                <part name="SaveDiagnosisReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByID">
+        <message name="RemoveDiagnosisByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="RemoveByIDResponse">
-                <part name="RemoveByIDReturn" type="xsd:string"/>
+        <message name="RemoveDiagnosisByIDResponse">
+                <part name="RemoveDiagnosisByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveBySchoolID">
+        <message name="RemoveDiagnosisBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="RemoveBySchoolIDResponse">
-                <part name="RemoveBySchoolIDReturn" type="xsd:string"/>
+        <message name="RemoveDiagnosisBySchoolIDResponse">
+                <part name="RemoveDiagnosisBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByStudentID">
+        <message name="RemoveDiagnosisByStudentID">
         		<part name="studentID" type="xsd:int"/>
         </message>
-        <message name="RemoveByStudentIDResponse">
-                <part name="RemoveByStudentIDReturn" type="xsd:string"/>
+        <message name="RemoveDiagnosisByStudentIDResponse">
+                <part name="RemoveDiagnosisByStudentIDReturn" type="xsd:string"/>
         </message>
         
         <portType name="DiagnosisWSPortType">
-                <operation name="LoadAll">
-                        <input message="typens:LoadAll"/>
-                        <output message="typens:LoadAllResponse"/>
+                <operation name="LoadAllDiagnosis">
+                        <input message="typens:LoadAllDiagnosis"/>
+                        <output message="typens:LoadAllDiagnosisResponse"/>
                 </operation>
-                <operation name="LoadByID">
-                        <input message="typens:LoadByID"/>
-                        <output message="typens:LoadByIDResponse"/>
+                <operation name="LoadDiagnosisByID">
+                        <input message="typens:LoadDiagnosisByID"/>
+                        <output message="typens:LoadDiagnosisByIDResponse"/>
                 </operation>
-                <operation name="LoadBySchoolID">
-                        <input message="typens:LoadBySchoolID"/>
-                        <output message="typens:LoadBySchoolIDResponse"/>
+                <operation name="LoadDiagnosisBySchoolID">
+                        <input message="typens:LoadDiagnosisBySchoolID"/>
+                        <output message="typens:LoadDiagnosisBySchoolIDResponse"/>
                 </operation>
-                <operation name="LoadByStudentID">
-                        <input message="typens:LoadByStudentID"/>
-                        <output message="typens:LoadByStudentIDResponse"/>
+                <operation name="LoadDiagnosisByStudentID">
+                        <input message="typens:LoadDiagnosisByStudentID"/>
+                        <output message="typens:LoadDiagnosisByStudentIDResponse"/>
                 </operation>
-                <operation name="LoadByStudentGroupID">
-                        <input message="typens:LoadByStudentGroupID"/>
-                        <output message="typens:LoadByStudentGroupIDResponse"/>
+                <operation name="LoadDiagnosisByStudentGroupID">
+                        <input message="typens:LoadDiagnosisByStudentGroupID"/>
+                        <output message="typens:LoadDiagnosisByStudentGroupIDResponse"/>
                 </operation>
-                <operation name="Save">
-                        <input message="typens:Save"/>
-                        <output message="typens:SaveResponse"/>
+                <operation name="SaveDiagnosis">
+                        <input message="typens:SaveDiagnosis"/>
+                        <output message="typens:SaveDiagnosisResponse"/>
                 </operation>
-                <operation name="RemoveByID">
-                        <input message="typens:RemoveByID"/>
-                        <output message="typens:RemoveByIDResponse"/>
+                <operation name="RemoveDiagnosisByID">
+                        <input message="typens:RemoveDiagnosisByID"/>
+                        <output message="typens:RemoveDiagnosisByIDResponse"/>
                 </operation>
-                <operation name="RemoveBySchoolID">
-                        <input message="typens:RemoveBySchoolID"/>
-                        <output message="typens:RemoveBySchoolIDResponse"/>
+                <operation name="RemoveDiagnosisBySchoolID">
+                        <input message="typens:RemoveDiagnosisBySchoolID"/>
+                        <output message="typens:RemoveDiagnosisBySchoolIDResponse"/>
                 </operation>
-                <operation name="RemoveByStudentID">
-                        <input message="typens:RemoveByStudentID"/>
-                        <output message="typens:RemoveByStudentIDResponse"/>
+                <operation name="RemoveDiagnosisByStudentID">
+                        <input message="typens:RemoveDiagnosisByStudentID"/>
+                        <output message="typens:RemoveDiagnosisByStudentIDResponse"/>
                 </operation>
         </portType>
         
         <binding name="DiagnosisWSBinding" type="typens:DiagnosisWSPortType">
                 <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-                <operation name="LoadAll">
+                <operation name="LoadAllDiagnosis">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -113,7 +113,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByID">
+                <operation name="LoadDiagnosisByID">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -123,7 +123,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadBySchoolID">
+                <operation name="LoadDiagnosisBySchoolID">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -133,7 +133,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByStudentID">
+                <operation name="LoadDiagnosisByStudentID">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -143,7 +143,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByStudentGroupID">
+                <operation name="LoadDiagnosisByStudentGroupID">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -153,7 +153,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Save">
+                <operation name="SaveDiagnosis">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -163,7 +163,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByID">
+                <operation name="RemoveDiagnosisByID">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -173,7 +173,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveBySchoolID">
+                <operation name="RemoveDiagnosisBySchoolID">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -183,7 +183,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByStudentID">
+                <operation name="RemoveDiagnosisByStudentID">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

@@ -5,7 +5,7 @@ include_once "class/school.class.php";
 
 class SchoolWS {
  
-        public function LoadAll() {
+        public function LoadAllSchools() {
         	$banco = new banco();
         	$School = new School($banco);
         	$rs = $School->Load();
@@ -14,7 +14,7 @@ class SchoolWS {
         	return $string;
         }
         
-        public function LoadByID($id) {
+        public function LoadSchoolsByID($id) {
         	$banco = new banco();
         	$School = new School($banco);
         	$rs = $School->Load($id);
@@ -23,7 +23,7 @@ class SchoolWS {
         	return $string;
         }
         
-        public function LoadByPublicID($publicID) {
+        public function LoadSchoolsByPublicID($publicID) {
         	$banco = new banco();
         	$School = new School($banco);
         	$rs = $School->LoadByPublicID($publicID);
@@ -32,7 +32,7 @@ class SchoolWS {
         	return $string;
         }
         
-        public function LoadBySyncCode($syncCode) {
+        public function LoadSchoolsBySyncCode($syncCode) {
         	$banco = new banco();
         	$School = new School($banco);
         	$rs = $School->LoadBySyncCode($syncCode);
@@ -41,7 +41,7 @@ class SchoolWS {
         	return $string;
         }
         
-        public function Save($input){
+        public function SaveSchools($input){
         	$banco = new banco();
         	$School = new School($banco);
         	$School->Save(json_decode($input, true));
@@ -49,7 +49,7 @@ class SchoolWS {
         	return "";
         }
         
-        public function RemoveByID($id){
+        public function RemoveSchoolsByID($id){
         	$banco = new banco();
         	$School = new School($banco);
         	$rs = $School->RemoveByID($id);
@@ -57,7 +57,7 @@ class SchoolWS {
         	return "";	
         }
         
-        public function RemoveByPublicID($publicID){
+        public function RemoveSchoolsByPublicID($publicID){
         	$banco = new banco();
         	$School = new School($banco);
         	$rs = $School->RemoveByPublicID($publicID);
@@ -65,7 +65,7 @@ class SchoolWS {
         	return "";
         }
         
-        public function RemoveBySyncCode($syncCode){
+        public function RemoveSchoolsBySyncCode($syncCode){
         	$banco = new banco();
         	$School = new School($banco);
         	$rs = $School->RemoveBySyncCode($syncCode);
@@ -73,7 +73,7 @@ class SchoolWS {
         	return "";
         }
         
-        public function Update($input){
+        public function UpdateSchools($input){
         	$banco = new banco();
         	$School = new School($banco);
         	$School->Update(json_decode($input, true));

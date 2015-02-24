@@ -1,99 +1,99 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
         
-        <message name="LoadAll"/>
-        <message name="LoadAllResponse">
-                <part name="LoadAllReturn" type="xsd:string"/>
+        <message name="LoadAllTeachers"/>
+        <message name="LoadAllTeachersResponse">
+                <part name="LoadAllTeachersReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByID">
+        <message name="LoadTeachersByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="LoadByIDResponse">
-                <part name="LoadByIDReturn" type="xsd:string"/>
+        <message name="LoadTeachersByIDResponse">
+                <part name="LoadTeachersByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadBySchoolID">
+        <message name="LoadTeachersBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="LoadBySchoolIDResponse">
-                <part name="LoadBySchoolIDReturn" type="xsd:string"/>
+        <message name="LoadTeachersBySchoolIDResponse">
+                <part name="LoadTeachersBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="LoadByLogin">
+        <message name="LoadTeachersByLogin">
         		<part name="email" type="xsd:string"/>
         		<part name="passcode" type="xsd:string"/>
         </message>
-        <message name="LoadByLoginResponse">
-                <part name="LoadByLoginReturn" type="xsd:string"/>
+        <message name="LoadTeachersByLoginResponse">
+                <part name="LoadTeachersByLoginReturn" type="xsd:string"/>
         </message>
         
-        <message name="Save">
+        <message name="SaveTeachers">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="SaveResponse">
-                <part name="SaveReturn" type="xsd:string"/>
+        <message name="SaveTeachersResponse">
+                <part name="SaveTeachersReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveByID">
+        <message name="RemoveTeachersByID">
         		<part name="id" type="xsd:int"/>
         </message>
-        <message name="RemoveByIDResponse">
-                <part name="RemoveByIDReturn" type="xsd:string"/>
+        <message name="RemoveTeachersByIDResponse">
+                <part name="RemoveTeachersByIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="RemoveBySchoolID">
+        <message name="RemoveTeachersBySchoolID">
         		<part name="schoolID" type="xsd:int"/>
         </message>
-        <message name="RemoveBySchoolIDResponse">
-                <part name="RemoveBySchoolIDReturn" type="xsd:string"/>
+        <message name="RemoveTeachersBySchoolIDResponse">
+                <part name="RemoveTeachersBySchoolIDReturn" type="xsd:string"/>
         </message>
         
-        <message name="Update">
+        <message name="UpdateTeachers">
         		<part name="input" type="xsd:string"/>
         </message>
-        <message name="UpdateResponse">
-                <part name="UpdateReturn" type="xsd:string"/>
+        <message name="UpdateTeachersResponse">
+                <part name="UpdateTeachersReturn" type="xsd:string"/>
         </message>
         
         <portType name="TeacherWSPortType">
-                <operation name="LoadAll">
-                        <input message="typens:LoadAll"/>
-                        <output message="typens:LoadAllResponse"/>
+                <operation name="LoadAllTeachers">
+                        <input message="typens:LoadAllTeachers"/>
+                        <output message="typens:LoadAllTeachersResponse"/>
                 </operation>
-                <operation name="LoadByID">
-                        <input message="typens:LoadByID"/>
-                        <output message="typens:LoadByIDResponse"/>
+                <operation name="LoadTeachersByID">
+                        <input message="typens:LoadTeachersByID"/>
+                        <output message="typens:LoadTeachersByIDResponse"/>
                 </operation>
-                <operation name="LoadBySchoolID">
-                        <input message="typens:LoadBySchoolID"/>
-                        <output message="typens:LoadBySchoolIDResponse"/>
+                <operation name="LoadTeachersBySchoolID">
+                        <input message="typens:LoadTeachersBySchoolID"/>
+                        <output message="typens:LoadTeachersBySchoolIDResponse"/>
                 </operation>
-                <operation name="LoadByLogin">
-                        <input message="typens:LoadByLogin"/>
-                        <output message="typens:LoadByLoginResponse"/>
+                <operation name="LoadTeachersByLogin">
+                        <input message="typens:LoadTeachersByLogin"/>
+                        <output message="typens:LoadTeachersByLoginResponse"/>
                 </operation>
-                <operation name="Save">
-                        <input message="typens:Save"/>
-                        <output message="typens:SaveResponse"/>
+                <operation name="SaveTeachers">
+                        <input message="typens:SaveTeachers"/>
+                        <output message="typens:SaveTeachersResponse"/>
                 </operation>
-                <operation name="RemoveByID">
-                        <input message="typens:RemoveByID"/>
-                        <output message="typens:RemoveByIDResponse"/>
+                <operation name="RemoveTeachersByID">
+                        <input message="typens:RemoveTeachersByID"/>
+                        <output message="typens:RemoveTeachersByIDResponse"/>
                 </operation>
-                <operation name="RemoveBySchoolID">
-                        <input message="typens:RemoveBySchoolID"/>
-                        <output message="typens:RemoveBySchoolIDResponse"/>
+                <operation name="RemoveTeachersBySchoolID">
+                        <input message="typens:RemoveTeachersBySchoolID"/>
+                        <output message="typens:RemoveTeachersBySchoolIDResponse"/>
                 </operation>
-                <operation name="Update">
-                        <input message="typens:Update"/>
-                        <output message="typens:UpdateResponse"/>
+                <operation name="UpdateTeachers">
+                        <input message="typens:UpdateTeachers"/>
+                        <output message="typens:UpdateTeachersResponse"/>
                 </operation>
         </portType>
         
         <binding name="TeacherWSBinding" type="typens:TeacherWSPortType">
                 <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-                <operation name="LoadAll">
+                <operation name="LoadAllTeachers">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -103,7 +103,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByID">
+                <operation name="LoadTeachersByID">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -113,7 +113,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadBySchoolID">
+                <operation name="LoadTeachersBySchoolID">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -123,7 +123,7 @@
                         </output>
                 </operation>
                 
-                <operation name="LoadByLogin">
+                <operation name="LoadTeachersByLogin">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -133,7 +133,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Save">
+                <operation name="SaveTeachers">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -143,7 +143,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveByID">
+                <operation name="RemoveTeachersByID">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -153,7 +153,7 @@
                         </output>
                 </operation>
                 
-                <operation name="RemoveBySchoolID">
+                <operation name="RemoveTeachersBySchoolID">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
@@ -163,7 +163,7 @@
                         </output>
                 </operation>
                 
-                <operation name="Update">
+                <operation name="UpdateTeachers">
                         <soap:operation soapAction="urn:TeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

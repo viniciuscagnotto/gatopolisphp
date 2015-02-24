@@ -5,7 +5,7 @@ include_once "class/diagnosis.class.php";
 
 class DiagnosisWS {
  
-        public function LoadAll() {
+        public function LoadAllDiagnosis() {
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->Load();
@@ -14,7 +14,7 @@ class DiagnosisWS {
         	return $string;
         }
         
-        public function LoadByID($id) {
+        public function LoadDiagnosisByID($id) {
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->Load($id);
@@ -23,7 +23,7 @@ class DiagnosisWS {
         	return $string;
         }
         
-        public function LoadBySchoolID($schoolID) {
+        public function LoadDiagnosisBySchoolID($schoolID) {
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->LoadBySchoolID($schoolID);
@@ -32,7 +32,7 @@ class DiagnosisWS {
         	return $string;
         }
         
-        public function LoadByStudentID($studentID) {
+        public function LoadDiagnosisByStudentID($studentID) {
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->LoadByStudentID($studentID);
@@ -41,7 +41,7 @@ class DiagnosisWS {
         	return $string;
         }
         
-        public function LoadByStudentGroupID($studentGroupID) {
+        public function LoadDiagnosisByStudentGroupID($studentGroupID) {
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->LoadByStudentGroupID($studentGroupID);
@@ -50,7 +50,7 @@ class DiagnosisWS {
         	return $string;
         }
         
-        public function Save($input){
+        public function SaveDiagnosis($input){
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$Diagnosis->Save(json_decode($input, true));
@@ -58,7 +58,7 @@ class DiagnosisWS {
         	return "";
         }
         
-        public function RemoveByID($id){
+        public function RemoveDiagnosisByID($id){
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->RemoveByID($id);
@@ -66,7 +66,7 @@ class DiagnosisWS {
         	return "";	
         }
         
-        public function RemoveBySchoolID($schoolID){
+        public function RemoveDiagnosisBySchoolID($schoolID){
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->RemoveBySchoolID($schoolID);
@@ -74,7 +74,7 @@ class DiagnosisWS {
         	return "";
         }
         
-        public function RemoveByStudentID($studentID){
+        public function RemoveDiagnosisByStudentID($studentID){
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->RemoveByStudentID($studentID);
