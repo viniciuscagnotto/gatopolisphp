@@ -44,21 +44,21 @@
         </message>
         
         <message name="RemoveChallengeSummaryByID">
-        		<part name="id" type="xsd:int"/>
+        		<part name="idToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveChallengeSummaryByIDResponse">
                 <part name="RemoveChallengeSummaryByIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveChallengeSummaryBySchoolID">
-        		<part name="schoolID" type="xsd:int"/>
+        		<part name="schoolIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveChallengeSummaryBySchoolIDResponse">
                 <part name="RemoveChallengeSummaryBySchoolIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveChallengeSummaryByStudentID">
-        		<part name="studentID" type="xsd:int"/>
+        		<part name="studentIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveChallengeSummaryByStudentIDResponse">
                 <part name="RemoveChallengeSummaryByStudentIDReturn" type="xsd:string"/>

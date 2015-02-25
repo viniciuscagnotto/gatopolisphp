@@ -36,21 +36,21 @@
         </message>
         
         <message name="RemoveTeachersByID">
-        		<part name="id" type="xsd:int"/>
+        		<part name="idToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveTeachersByIDResponse">
                 <part name="RemoveTeachersByIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveTeachersBySchoolID">
-        		<part name="schoolID" type="xsd:int"/>
+        		<part name="schoolIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveTeachersBySchoolIDResponse">
                 <part name="RemoveTeachersBySchoolIDReturn" type="xsd:string"/>
         </message>
         
         <message name="UpdateTeachers">
-        		<part name="input" type="xsd:string"/>
+        		<part name="update" type="xsd:string"/>
         </message>
         <message name="UpdateTeachersResponse">
                 <part name="UpdateTeachersReturn" type="xsd:string"/>

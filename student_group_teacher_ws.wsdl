@@ -41,28 +41,28 @@
         </message>
         
         <message name="RemoveStudentGroupTeacherByID">
-        		<part name="id" type="xsd:int"/>
+        		<part name="idToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveStudentGroupTeacherByIDResponse">
                 <part name="RemoveStudentGroupTeacherByIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveStudentGroupTeacherBySchoolID">
-        		<part name="schoolID" type="xsd:int"/>
+        		<part name="schoolIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveStudentGroupTeacherBySchoolIDResponse">
                 <part name="RemoveStudentGroupTeacherBySchoolIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveStudentGroupTeacherByStudentGroupID">
-        		<part name="studentGroupID" type="xsd:int"/>
+        		<part name="studentGroupIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveStudentGroupTeacherByStudentGroupIDResponse">
                 <part name="RemoveStudentGroupTeacherByStudentGroupIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveStudentGroupTeacherByTeacherID">
-        		<part name="teacherID" type="xsd:int"/>
+        		<part name="teacherIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveStudentGroupTeacherByTeacherIDResponse">
                 <part name="RemoveStudentGroupTeacherByTeacherIDReturn" type="xsd:string"/>

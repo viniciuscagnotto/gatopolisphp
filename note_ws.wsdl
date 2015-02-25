@@ -42,35 +42,35 @@
         </message>
         
         <message name="RemoveNotesByID">
-        		<part name="id" type="xsd:int"/>
+        		<part name="idToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveNotesByIDResponse">
                 <part name="RemoveNotesByIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveNotesBySchoolID">
-        		<part name="schoolID" type="xsd:int"/>
+        		<part name="schoolIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveNotesBySchoolIDResponse">
                 <part name="RemoveNotesBySchoolIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveNotesByStudentID">
-        		<part name="studentID" type="xsd:int"/>
+        		<part name="studentIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveNotesByStudentIDResponse">
                 <part name="RemoveNotesByStudentIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveNotesByTeacherID">
-        		<part name="teacherID" type="xsd:int"/>
+        		<part name="teacherIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveNotesByTeacherIDResponse">
                 <part name="RemoveNotesByTeacherIDReturn" type="xsd:string"/>
         </message>
         
         <message name="UpdateNotes">
-        		<part name="input" type="xsd:string"/>
+        		<part name="update" type="xsd:string"/>
         </message>
         <message name="UpdateNotesResponse">
                 <part name="UpdateNotesReturn" type="xsd:string"/>

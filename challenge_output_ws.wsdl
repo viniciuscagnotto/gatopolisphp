@@ -43,21 +43,21 @@
         </message>
         
         <message name="RemoveChallengeOutputByID">
-        		<part name="id" type="xsd:int"/>
+        		<part name="idToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveChallengeOutputByIDResponse">
                 <part name="RemoveChallengeOutputByIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveChallengeOutputBySchoolID">
-        		<part name="schoolID" type="xsd:int"/>
+        		<part name="schoolIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveChallengeOutputBySchoolIDResponse">
                 <part name="RemoveChallengeOutputBySchoolIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveChallengeOutputByStudentID">
-        		<part name="studentID" type="xsd:int"/>
+        		<part name="studentIDToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveChallengeOutputByStudentIDResponse">
                 <part name="RemoveChallengeOutputByStudentIDReturn" type="xsd:string"/>
