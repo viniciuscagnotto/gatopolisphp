@@ -35,28 +35,28 @@
         </message>
         
         <message name="RemoveSchoolsByID">
-        		<part name="id" type="xsd:int"/>
+        		<part name="idToRemove" type="xsd:int"/>
         </message>
         <message name="RemoveSchoolsByIDResponse">
                 <part name="RemoveSchoolsByIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveSchoolsByPublicID">
-        		<part name="publicID" type="xsd:string"/>
+        		<part name="publicIDToDelete" type="xsd:string"/>
         </message>
         <message name="RemoveSchoolsByPublicIDResponse">
                 <part name="RemoveSchoolsByPublicIDReturn" type="xsd:string"/>
         </message>
         
         <message name="RemoveSchoolsBySyncCode">
-        		<part name="syncCode" type="xsd:string"/>
+        		<part name="syncCodeToDelete" type="xsd:string"/>
         </message>
         <message name="RemoveSchoolsBySyncCodeResponse">
                 <part name="RemoveSchoolsBySyncCodeReturn" type="xsd:string"/>
         </message>
         
         <message name="UpdateSchools">
-        		<part name="input" type="xsd:string"/>
+        		<part name="update" type="xsd:string"/>
         </message>
         <message name="UpdateSchoolsResponse">
                 <part name="UpdateSchoolsReturn" type="xsd:string"/>
