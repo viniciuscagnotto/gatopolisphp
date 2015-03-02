@@ -53,9 +53,9 @@ class NoteWS {
         public function SaveNotes($input){
         	$banco = new banco();
         	$Note = new Note($banco);
-        	$Note->Save(json_decode($input, true));
+        	$ultimoID = $Note->Save(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveNotesByID($id){

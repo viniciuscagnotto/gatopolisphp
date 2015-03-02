@@ -63,7 +63,8 @@ class Diagnosis {
 																		 ".$data["school_id"].",
 														 				 ".$data["student_id"].",
 														 				 ".$data["start_time"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveByID($id){

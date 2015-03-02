@@ -44,9 +44,9 @@ class SchoolWS {
         public function SaveSchools($input){
         	$banco = new banco();
         	$School = new School($banco);
-        	$School->Save(json_decode($input, true));
+        	$ultimoID = $School->Save(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveSchoolsByID($id){

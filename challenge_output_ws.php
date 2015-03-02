@@ -53,9 +53,9 @@ class ChallengeOutputWS {
         public function SaveChallengeOutput($input){
         	$banco = new banco();
         	$Challenge = new Challenge($banco);
-        	$Challenge->SaveChallengeOutput(json_decode($input, true));
+        	$ultimoID = $Challenge->SaveChallengeOutput(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveChallengeOutputByID($id){

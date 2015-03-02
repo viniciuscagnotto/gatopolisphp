@@ -45,7 +45,8 @@ class Student {
 													 		   '".$data["series"]."',
 													 		   ".$data["school_id"].",
 													 		   '".$data["deleted_at"]."');";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveStudentGroupByID($id){
@@ -116,7 +117,8 @@ class Student {
 															   '".$data["birth_date"]."',
 															   ".$data["school_id"].",
 															   ".$data["student_group_id"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveStudentByID($id){
@@ -215,7 +217,8 @@ class Student {
 															   ".$data["student_group_id"].",
 													 		   ".$data["teacher_id"].",
 													 		   '".$data["deleted_at"]."');";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveStudentGroupTeacherByID($id){

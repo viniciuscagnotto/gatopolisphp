@@ -44,9 +44,9 @@ class StudentWS {
         public function SaveStudent($input){
         	$banco = new banco();
         	$Student = new Student($banco);
-        	$Student->SaveStudent(json_decode($input, true));
+        	$ultimoID = $Student->SaveStudent(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveStudentByID($id){

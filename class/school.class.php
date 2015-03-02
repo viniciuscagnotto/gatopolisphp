@@ -40,7 +40,8 @@ class School {
 													   '".$data["coordinator_code"]."',
 													   '".$data["public_id"]."',
 													   '".$data["sync_code"]."');";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveByID($id){

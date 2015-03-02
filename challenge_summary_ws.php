@@ -53,9 +53,9 @@ class ChallengeSummaryWS {
         public function SaveChallengeSummary($input){
         	$banco = new banco();
         	$Challenge = new Challenge($banco);
-        	$Challenge->SaveChallengeSummary(json_decode($input, true));
+        	$ultimoID = $Challenge->SaveChallengeSummary(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveChallengeSummaryByID($id){

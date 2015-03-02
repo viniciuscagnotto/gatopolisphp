@@ -53,9 +53,9 @@ class DiagnosisWS {
         public function SaveDiagnosis($input){
         	$banco = new banco();
         	$Diagnosis = new Diagnosis($banco);
-        	$Diagnosis->Save(json_decode($input, true));
+        	$ultimoID = $Diagnosis->Save(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveDiagnosisByID($id){

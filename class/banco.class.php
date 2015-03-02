@@ -143,7 +143,7 @@ class banco {
 		$this->conexao = 0;
 	}
 
-	function ultimo_id(){
+	public function ultimo_id(){
 		return mysql_insert_id();
 	}
 

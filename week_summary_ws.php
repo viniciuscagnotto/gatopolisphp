@@ -53,9 +53,9 @@ class WeekSummaryWS {
         public function SaveWeekSummary($input){
         	$banco = new banco();
         	$Challenge = new Challenge($banco);
-        	$Challenge->SaveWeekSummary(json_decode($input, true));
+        	$ultimoID = $Challenge->SaveWeekSummary(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveWeekSummaryByID($id){

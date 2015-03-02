@@ -53,9 +53,9 @@ class StudentGroupTeacherWS {
         public function SaveStudentGroupTeacher($input){
         	$banco = new banco();
         	$Student = new Student($banco);
-        	$Student->SaveStudentGroupTeacher(json_decode($input, true));
+        	$ultimoID = $Student->SaveStudentGroupTeacher(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveStudentGroupTeacherByID($id){

@@ -60,7 +60,8 @@ class Teacher {
 													   '".$data["picture"]."',
 													   ".$data["is_coordinator"].",
 													   ".$data["school_id"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveByID($id){

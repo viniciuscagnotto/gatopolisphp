@@ -62,7 +62,8 @@ class WrittenWord {
 													   		 ".$data["written_at"].",
 													   		 ".$data["school_id"].",
 													   		 ".$data["student_id"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id(); 
 	}
 	
 	public function RemoveByID($id){

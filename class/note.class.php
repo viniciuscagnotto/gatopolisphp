@@ -68,7 +68,8 @@ class Note {
 													 ".$data["teacher_id"].",
 													 ".$data["student_id"].",
 													 ".$data["written_at"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveByID($id){

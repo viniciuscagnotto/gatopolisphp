@@ -81,7 +81,8 @@ class Challenge {
 															   		  ".$data["student_id"].",
 															   		  ".$data["summarized"].",
 															   		  ".$data["week_summarized"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 
 	public function RemoveChallengeOutputByID($id){
@@ -165,7 +166,8 @@ class Challenge {
 															      ".$data["student_id"].",
 															      ".$data["times_played"].",
 															      ".$data["total_time"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveChallengeSummaryByID($id){
@@ -253,7 +255,8 @@ class Challenge {
 														".$data["times_played"].",
 														".$data["total_time"].",
 														".$data["week"].");";
-		return $this->banco->executa($sql);
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
 	}
 	
 	public function RemoveWeekSummaryByID($id){

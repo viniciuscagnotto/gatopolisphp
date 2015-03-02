@@ -44,9 +44,9 @@ class WrittenWordWS {
         public function SaveWrittenWords($input){
         	$banco = new banco();
         	$WrittenWord = new WrittenWord($banco);
-        	$WrittenWord->Save(json_decode($input, true));
+        	$ultimoID = $WrittenWord->Save(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveWrittenWordsByID($id){

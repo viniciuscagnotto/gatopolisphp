@@ -35,9 +35,9 @@ class StudentGroupWS {
         public function SaveStudentGroup($input){
         	$banco = new banco();
         	$Student = new Student($banco);
-        	$Student->SaveStudentGroup(json_decode($input, true));
+        	$ultimoID = $Student->SaveStudentGroup(json_decode($input, true));
         	$banco->desconecta_banco();
-        	return "";
+        	return $ultimoID."";
         }
         
         public function RemoveStudentGroupByID($id){
