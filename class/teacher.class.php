@@ -50,7 +50,6 @@ class Teacher {
 									question,
 									answer,
 									picture,
-									is_coordinator,
 									school_id) VALUES ('".$data["name"]."',
 													   '".$data["last_name"]."',
 													   '".$data["email"]."',
@@ -58,7 +57,6 @@ class Teacher {
 													   '".$data["question"]."',
 													   '".$data["answer"]."',
 													   '".$data["picture"]."',
-													   ".$data["is_coordinator"].",
 													   ".$data["school_id"].");";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
@@ -86,7 +84,6 @@ class Teacher {
 						question = '".$data["question"]."',
 						answer = '".$data["answer"]."',
 						picture = '".$data["picture"]."',
-						is_coordinator = ".$data["is_coordinator"].",
 						school_id = ".$data["school_id"]." 
 								WHERE teacher_id = ".$data["teacher_id"];
 		return $this->banco->executa($sql);

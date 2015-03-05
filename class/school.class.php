@@ -21,9 +21,10 @@ class School {
 	}
 	
 	public function LoadByPublicID($publicID){
-		$sql = "SELECT * FROM school WHERE public_id = '$publicID'";
-		$result = $this->banco->executa($sql);
-		return $result;
+		//$sql = "SELECT * FROM school WHERE public_id = '$publicID'";
+		//$result = $this->banco->executa($sql);
+		//return $result;
+		return "";
 	}
 	
 	public function LoadBySyncCode($syncCode){
@@ -34,11 +35,7 @@ class School {
 	
 	public function Save($data){
 		$sql = "INSERT INTO school (name, 
-									coordinator_code, 
-									public_id, 
 									sync_code) VALUES ('".$data["name"]."',
-													   '".$data["coordinator_code"]."',
-													   '".$data["public_id"]."',
 													   '".$data["sync_code"]."');";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
@@ -50,8 +47,8 @@ class School {
 	}
 	
 	public function RemoveByPublicID($publicID){
-		$sql = "DELETE FROM school WHERE public_id = '$publicID'";
-		return $this->banco->executa($sql);
+		//$sql = "DELETE FROM school WHERE public_id = '$publicID'";
+		//return $this->banco->executa($sql);
 	}
 	
 	public function RemoveBySyncCode($syncCode){
@@ -65,8 +62,6 @@ class School {
 		
 		$sql = "UPDATE school
 					SET name = '".$data["name"]."',
-						coordinator_code = '".$data["coordinator_code"]."',
-						public_id = '".$data["public_id"]."',
 						sync_code = '".$data["sync_code"]."'
 							WHERE school_id = ".$data["school_id"];
 		return $this->banco->executa($sql);

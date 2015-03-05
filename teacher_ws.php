@@ -46,7 +46,7 @@ class TeacherWS {
         	$Teacher = new Teacher($banco);
         	$ultimoID = $Teacher->Save(json_decode($input, true));
         	$banco->desconecta_banco();
-        	rreturn $ultimoID."";
+        	return $ultimoID."";
         }
         
         public function RemoveTeachersByID($id){

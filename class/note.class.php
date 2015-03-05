@@ -67,7 +67,7 @@ class Note {
 													 ".$data["school_id"].",
 													 ".$data["teacher_id"].",
 													 ".$data["student_id"].",
-													 ".$data["written_at"].");";
+													 '".$data["written_at"]."');";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
 	}

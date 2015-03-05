@@ -39,12 +39,10 @@ class Student {
 		$sql = "INSERT INTO student_group (name,
 								 		   period,
 								 		   series,
-								 		   school_id,
-								 		   deleted_at) VALUES ('".$data["name"]."',
+								 		   school_id) VALUES ('".$data["name"]."',
 															   '".$data["period"]."',
 													 		   '".$data["series"]."',
-													 		   ".$data["school_id"].",
-													 		   '".$data["deleted_at"]."');";
+													 		   ".$data["school_id"].");";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
 	}
@@ -101,8 +99,7 @@ class Student {
 		$sql = "INSERT INTO student (name,
 								 	 last_name,
 								 	 gender,
-								 	 guardian,
-									 diagnosis_level,
+								 	 diagnosis_level,
 									 coins,
 									 buildings_count,
 									 birth_date,
@@ -110,7 +107,6 @@ class Student {
 									 student_group_id) VALUES ('".$data["name"]."',
 															   '".$data["last_name"]."',
 															   '".$data["gender"]."',
-															   '".$data["guardian"]."',
 															   '".$data["diagnosis_level"]."',
 															   ".$data["coins"].",
 															   '".$data["buildings_count"]."',
@@ -144,7 +140,6 @@ class Student {
 					SET name = '".$data["name"]."',
 						last_name = '".$data["last_name"]."',
 						gender = '".$data["gender"]."',
-						guardian = '".$data["guardian"]."',
 						diagnosis_level = '".$data["diagnosis_level"]."',
 						coins = ".$data["coins"].",
 						buildings_count = '".$data["buildings_count"]."',
@@ -212,11 +207,9 @@ class Student {
 	public function SaveStudentGroupTeacher($data){
 		$sql = "INSERT INTO student_group_teacher (school_id,
 								 		   		  student_group_id,
-								 		   		  teacher_id,
-												  deleted_at) VALUES (".$data["school_id"].",
+								 		   		  teacher_id) VALUES (".$data["school_id"].",
 															   ".$data["student_group_id"].",
-													 		   ".$data["teacher_id"].",
-													 		   '".$data["deleted_at"]."');";
+													 		   ".$data["teacher_id"].");";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
 	}

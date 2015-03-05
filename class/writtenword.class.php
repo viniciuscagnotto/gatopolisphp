@@ -59,7 +59,7 @@ class WrittenWord {
 											  		  	     '".$data["expected"]."',
 													   		 '".$data["gesture"]."',
 													   		 '".$data["diagnosis_level"]."',
-													   		 ".$data["written_at"].",
+													   		 '".$data["written_at"]."',
 													   		 ".$data["school_id"].",
 													   		 ".$data["student_id"].");";
 		$this->banco->executa($sql);

@@ -68,9 +68,7 @@ class Challenge {
 									 		 etapa_challenge,
 									 		 minigame,
 									 		 school_id,
-									 		 student_id,
-									 		 summarized,
-									 		 week_summarized) VALUES (".$data["asserts"].",
+									 		 student_id) VALUES (".$data["asserts"].",
 															  		  ".$data["asserts_percentage"].",
 															   		  '".$data["challenge_exercise"]."',
 															   		  ".$data["duration"].",
@@ -78,9 +76,7 @@ class Challenge {
 															   		  '".$data["etapa_challenge"]."',
 															   		  '".$data["minigame"]."',
 															   		  ".$data["school_id"].",
-															   		  ".$data["student_id"].",
-															   		  ".$data["summarized"].",
-															   		  ".$data["week_summarized"].");";
+															   		  ".$data["student_id"].");";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
 	}

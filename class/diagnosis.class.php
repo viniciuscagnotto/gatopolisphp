@@ -62,7 +62,7 @@ class Diagnosis {
 								 	 				 start_time) VALUES ('".$data["diagnosis_level"]."',
 																		 ".$data["school_id"].",
 														 				 ".$data["student_id"].",
-														 				 ".$data["start_time"].");";
+														 				 '".$data["start_time"]."');";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
 	}
