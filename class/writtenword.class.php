@@ -15,7 +15,7 @@ class WrittenWord {
 		if($id != "")
 			$where .= " AND wd.written_word_id = $id";
 	
-		$sql = "SELECT * 
+		$sql = "SELECT *, s.name as school_name, st.name as student_name
 					FROM written_word wd
 				 		INNER JOIN school s ON s.school_id = wd.school_id
 						INNER JOIN student st ON st.student_id = wd.student_id
@@ -29,7 +29,7 @@ class WrittenWord {
 		if($limit != "")
 			$lastStudents .= " ORDER by written_at DESC LIMIT $limit";
 		
-		$sql = "SELECT * 
+		$sql = "SELECT *, s.name as school_name, st.name as student_name
 					FROM written_word wd 
 				   		INNER JOIN school s ON s.school_id = wd.school_id
 						INNER JOIN student st ON st.student_id = wd.student_id
@@ -39,7 +39,7 @@ class WrittenWord {
 	}
 	
 	public function LoadBySchoolID($school_id){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name
 					FROM written_word wd
 				 		INNER JOIN school s ON s.school_id = wd.school_id
 						INNER JOIN student st ON st.student_id = wd.student_id

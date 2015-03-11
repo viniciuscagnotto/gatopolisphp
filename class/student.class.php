@@ -18,7 +18,7 @@ class Student {
 		if($id != "")
 			$where .= " AND sg.student_group_id = $id";
 	
-		$sql = "SELECT *
+		$sql = "SELECT *, sg.name as student_group_name, s.name as school_name
 					FROM student_group sg
 				 		INNER JOIN school s ON s.school_id = sg.school_id
 							WHERE 1=1".$where;
@@ -27,7 +27,7 @@ class Student {
 	}
 	
 	public function LoadStudentGroupBySchoolID($schoolID){
-		$sql = "SELECT *
+		$sql = "SELECT *, sg.name as student_group_name, s.name as school_name
 					FROM student_group sg
 				 		INNER JOIN school s ON s.school_id = sg.school_id
 							WHERE sg.school_id = $schoolID";
@@ -66,7 +66,7 @@ class Student {
 		if($id != "")
 			$where .= " AND st.student_id = $id";
 	
-		$sql = "SELECT *
+		$sql = "SELECT *, st.name as student_name, s.name as school_name, sg.name as student_group_name
 					FROM student st
 				 		INNER JOIN school s ON s.school_id = st.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = st.student_group_id
@@ -76,7 +76,7 @@ class Student {
 	}
 	
 	public function LoadStudentBySchoolID($schoolID){
-		$sql = "SELECT *
+		$sql = "SELECT *, st.name as student_name, s.name as school_name, sg.name as student_group_name
 					FROM student st
 						INNER JOIN school s ON s.school_id = st.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = st.student_group_id
@@ -86,7 +86,7 @@ class Student {
 	}
 	
 	public function LoadStudentByStudentGroupID($studentGroupID){
-		$sql = "SELECT *
+		$sql = "SELECT *, st.name as student_name, s.name as school_name, sg.name as student_group_name
 					FROM student st
 						INNER JOIN school s ON s.school_id = st.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = st.student_group_id
@@ -161,7 +161,7 @@ class Student {
 		if($id != "")
 			$where .= " AND sgt.student_group_teacher_id = $id";
 	
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, sg.name as student_group_name, t.name as teacher_name
 					FROM student_group_teacher sgt
 				 		INNER JOIN school s ON s.school_id = sgt.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id
@@ -172,7 +172,7 @@ class Student {
 	}
 	
 	public function LoadStudentGroupTeacherBySchoolID($schoolID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, sg.name as student_group_name, t.name as teacher_name
 					FROM student_group_teacher sgt
 				 		INNER JOIN school s ON s.school_id = sgt.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id
@@ -183,7 +183,7 @@ class Student {
 	}
 	
 	public function LoadStudentGroupTeacherByStudentGroupID($studentGroupID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, sg.name as student_group_name, t.name as teacher_name
 					FROM student_group_teacher sgt
 						INNER JOIN school s ON s.school_id = sgt.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id
@@ -194,7 +194,7 @@ class Student {
 	}
 	
 	public function LoadStudentGroupTeacherByTeacherID($teacherID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, sg.name as student_group_name, t.name as teacher_name
 					FROM student_group_teacher sgt
 						INNER JOIN school s ON s.school_id = sgt.school_id
 						INNER JOIN student_group sg ON sg.student_group_id = sgt.student_group_id

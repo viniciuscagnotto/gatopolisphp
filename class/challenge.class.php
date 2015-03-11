@@ -19,7 +19,7 @@ class Challenge {
 		if($id != "")
 			$where .= " AND co.challenge_output_id = $id";
 	
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name
 					FROM challenge_output co
 				 		INNER JOIN school s ON s.school_id = co.school_id
 						INNER JOIN student st ON st.student_id = co.student_id
@@ -29,7 +29,7 @@ class Challenge {
 	}
 	
 	public function LoadChallengeOutputBySchoolID($schoolID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name
 					FROM challenge_output co
 						INNER JOIN school s ON s.school_id = co.school_id
 						INNER JOIN student st ON st.student_id = co.student_id
@@ -39,7 +39,7 @@ class Challenge {
 	}
 	
 	public function LoadChallengeOutputByStudentID($studentID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name
 					FROM challenge_output co
 						INNER JOIN school s ON s.school_id = co.school_id
 						INNER JOIN student st ON st.student_id = co.student_id
@@ -49,7 +49,7 @@ class Challenge {
 	}
 	
 	public function LoadChallengeOutputByStudentIDAndEtapa($studentID, $etapa){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name
 					FROM challenge_output co
 						INNER JOIN school s ON s.school_id = co.school_id
 						INNER JOIN student st ON st.student_id = co.student_id

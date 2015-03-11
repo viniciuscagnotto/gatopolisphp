@@ -15,7 +15,7 @@ class Note {
 		if($id != "")
 			$where .= " AND n.note_id = $id";
 	
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
 					FROM note n
 				 		INNER JOIN school s ON s.school_id = n.school_id
 						INNER JOIN student st ON st.student_id = n.student_id
@@ -26,7 +26,7 @@ class Note {
 	}
 	
 	public function LoadBySchoolID($schoolID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
 					FROM note n
 				 		INNER JOIN school s ON s.school_id = n.school_id
 						INNER JOIN student st ON st.student_id = n.student_id
@@ -37,7 +37,7 @@ class Note {
 	}
 	
 	public function LoadByStudentID($studentID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
 					FROM note n
 						INNER JOIN school s ON s.school_id = n.school_id
 						INNER JOIN student st ON st.student_id = n.student_id
@@ -48,7 +48,7 @@ class Note {
 	}
 	
 	public function LoadByTeacherID($teacherID){
-		$sql = "SELECT *
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
 					FROM note n
 						INNER JOIN school s ON s.school_id = n.school_id
 						INNER JOIN student st ON st.student_id = n.student_id

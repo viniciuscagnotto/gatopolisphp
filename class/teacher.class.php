@@ -15,7 +15,7 @@ class Teacher {
 		if($id != "")
 			$where .= " AND t.teacher_id = $id";
 		
-		$sql = "SELECT * 
+		$sql = "SELECT *, t.name as teacher_name, s.name as school_name
 					FROM teacher t
 						INNER JOIN school s ON s.school_id = t.school_id 
 							WHERE 1=1".$where;
@@ -24,7 +24,7 @@ class Teacher {
 	}
 	
 	public function LoadByLogin($email, $passcode){
-		$sql = "SELECT * 
+		$sql = "SELECT *, t.name as teacher_name, s.name as school_name
 					FROM teacher t
 						INNER JOIN school s ON s.school_id = t.school_id
 							WHERE t.email = '$email' 
@@ -34,7 +34,7 @@ class Teacher {
 	}
 	
 	public function LoadBySchoolID($schoolID){
-		$sql = "SELECT * 
+		$sql = "SELECT *, t.name as teacher_name, s.name as school_name 
 					FROM teacher t 
 						INNER JOIN school s ON s.school_id = t.school_id
 							WHERE t.school_id = '$schoolID'";
