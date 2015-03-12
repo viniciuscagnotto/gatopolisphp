@@ -104,7 +104,8 @@ class Student {
 									 buildings_count,
 									 birth_date,
 									 school_id,
-									 student_group_id) VALUES ('".$data["name"]."',
+									 student_group_id,
+									 picture) VALUES ('".$data["name"]."',
 															   '".$data["last_name"]."',
 															   '".$data["gender"]."',
 															   '".$data["diagnosis_level"]."',
@@ -112,7 +113,8 @@ class Student {
 															   '".$data["buildings_count"]."',
 															   '".$data["birth_date"]."',
 															   ".$data["school_id"].",
-															   ".$data["student_group_id"].");";
+															   ".$data["student_group_id"].",
+															   '".$data["picture"]."');";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
 	}
@@ -145,7 +147,8 @@ class Student {
 						buildings_count = '".$data["buildings_count"]."',
 						birth_date = '".$data["birth_date"]."',
 						school_id = ".$data["school_id"].",
-						student_group_id = ".$data["student_group_id"]."
+						student_group_id = ".$data["student_group_id"].",
+						picture = '".$data["picture"]."'
 							WHERE student_id = ".$data["student_id"];
 		
 		return $this->banco->executa($sql);
