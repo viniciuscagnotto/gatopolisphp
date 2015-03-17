@@ -90,6 +90,14 @@ class StudentGroupTeacherWS {
         	return "";
         }
         
+        public function UpdateStudentGroupTeacher($update){
+        	$banco = new banco();
+        	$Student = new Student($banco);
+        	$Student->UpdateStudentGroupTeacher(json_decode($update, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
+        
 }
  
 $oSoapServer = new SoapServer('student_group_teacher_ws.wsdl');

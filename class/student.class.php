@@ -57,6 +57,19 @@ class Student {
 		return $this->banco->executa($sql);
 	}
 	
+	public function UpdateStudentGroup($data){
+		if($data["student_group_id"] == "")
+			return;
+	
+		$sql = "UPDATE student_group
+					SET name = '".$data["name"]."',
+						period = '".$data["period"]."',
+						series = '".$data["series"]."',
+						school_id = ".$data["school_id"]."
+							WHERE student_group_id = ".$data["student_group_id"];
+		return $this->banco->executa($sql);
+	}
+	
 	
 /*
  * STUDENT ******************************************
@@ -236,6 +249,19 @@ class Student {
 		$sql = "DELETE FROM student_group_teacher WHERE teacher_id = $teacherID";
 		return $this->banco->executa($sql);
 	}
+	
+	public function UpdateStudentGroupTeacher($data){
+		if($data["student_group_teacher_id"] == "")
+			return;
+	
+		$sql = "UPDATE student_group_teacher
+					SET school_id = ".$data["school_id"].",
+						student_group_id = ".$data["student_group_id"].",
+						teacher_id = ".$data["teacher_id"]."
+							WHERE student_group_teacher_id = ".$data["student_group_teacher_id"];
+		return $this->banco->executa($sql);
+	}
+	
 	
 }
 

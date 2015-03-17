@@ -96,6 +96,24 @@ class Challenge {
 		return $this->banco->executa($sql);
 	}
 	
+	public function UpdateChallengeOutput($data){
+		if($data["challenge_output_id"] == "")
+			return;
+	
+		$sql = "UPDATE challenge_output
+					SET asserts = ".$data["asserts"].",
+						asserts_percentage = ".$data["asserts_percentage"].",
+				 		challenge_exercise = '".$data["challenge_exercise"]."',
+						duration = ".$data["duration"].",
+						etapa = '".$data["etapa"]."',
+						etapa_challenge = '".$data["etapa_challenge"]."',
+						minigame = '".$data["minigame"]."',
+						school_id = ".$data["school_id"].",
+						student_id = ".$data["student_id"]."
+								WHERE challenge_output_id = ".$data["challenge_output_id"];
+		return $this->banco->executa($sql);
+	}
+	
 /*
  * CHALLENGE SUMMARY ******************************************
  */

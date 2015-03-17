@@ -68,6 +68,12 @@
                 <part name="RemoveStudentGroupTeacherByTeacherIDReturn" type="xsd:string"/>
         </message>
        
+        <message name="UpdateStudentGroupTeacher">
+        		<part name="update" type="xsd:string"/>
+        </message>
+        <message name="UpdateStudentGroupTeacherResponse">
+                <part name="UpdateStudentGroupTeacherReturn" type="xsd:string"/>
+        </message>
         
         <portType name="StudentGroupTeacherWSPortType">
                 <operation name="LoadAllStudentGroupTeachers">
@@ -109,6 +115,10 @@
                 <operation name="RemoveStudentGroupTeacherByTeacherID">
                         <input message="typens:RemoveStudentGroupTeacherByTeacherID"/>
                         <output message="typens:RemoveStudentGroupTeacherByTeacherIDResponse"/>
+                </operation>
+                <operation name="UpdateStudentGroupTeacher">
+                        <input message="typens:UpdateStudentGroupTeacher"/>
+                        <output message="typens:UpdateStudentGroupTeacherResponse"/>
                 </operation>
         </portType>
         
@@ -205,6 +215,16 @@
                 </operation>
                  
                 <operation name="RemoveStudentGroupTeacherByTeacherID">
+                        <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                 <operation name="UpdateStudentGroupTeacher">
                         <soap:operation soapAction="urn:StudentGroupTeacherWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

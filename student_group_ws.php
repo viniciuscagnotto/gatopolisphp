@@ -56,6 +56,13 @@ class StudentGroupWS {
         	return "";
         }
         
+        public function UpdateStudentGroupTeacher($update){
+        	$banco = new banco();
+        	$Student = new Student($banco);
+        	$Student->UpdateStudentGroup(json_decode($update, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
 }
  
 $oSoapServer = new SoapServer('student_group_ws.wsdl');

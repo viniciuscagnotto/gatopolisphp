@@ -82,6 +82,14 @@ class ChallengeOutputWS {
         	return "";
         }
         
+        public function UpdateChallengeOutput($update){
+        	$banco = new banco();
+        	$Challenge = new Challenge($banco);
+        	$Challenge->UpdateChallengeOutput(json_decode($update, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
+        
 
 }
  

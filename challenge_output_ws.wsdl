@@ -63,6 +63,12 @@
                 <part name="RemoveChallengeOutputByStudentIDReturn" type="xsd:string"/>
         </message>
 
+		<message name="UpdateChallengeOutput">
+        		<part name="update" type="xsd:string"/>
+        </message>
+        <message name="UpdateChallengeOutputResponse">
+                <part name="UpdateChallengeOutputReturn" type="xsd:string"/>
+        </message>
         
         <portType name="ChallengeOutputWSPortType">
                 <operation name="LoadAllChallengeOutputs">
@@ -101,7 +107,10 @@
                         <input message="typens:RemoveChallengeOutputByStudentID"/>
                         <output message="typens:RemoveChallengeOutputByStudentIDResponse"/>
                 </operation>
-               
+                <operation name="UpdateChallengeOutput">
+                        <input message="typens:UpdateChallengeOutput"/>
+                        <output message="typens:UpdateChallengeOutputResponse"/>
+                </operation>
         </portType>
         
         <binding name="ChallengeOutputWSBinding" type="typens:ChallengeOutputWSPortType">
@@ -187,6 +196,16 @@
                 </operation>
                 
                 <operation name="RemoveChallengeOutputByStudentID">
+                        <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="UpdateChallengeOutput">
                         <soap:operation soapAction="urn:ChallengeOutputWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

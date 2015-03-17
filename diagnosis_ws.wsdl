@@ -62,6 +62,14 @@
                 <part name="RemoveDiagnosisByStudentIDReturn" type="xsd:string"/>
         </message>
         
+        <message name="UpdateDiagnosis">
+        		<part name="update" type="xsd:string"/>
+        </message>
+        <message name="UpdateDiagnosisResponse">
+                <part name="UpdateDiagnosisReturn" type="xsd:string"/>
+        </message>
+        
+        
         <portType name="DiagnosisWSPortType">
                 <operation name="LoadAllDiagnosis">
                         <input message="typens:LoadAllDiagnosis"/>
@@ -98,6 +106,10 @@
                 <operation name="RemoveDiagnosisByStudentID">
                         <input message="typens:RemoveDiagnosisByStudentID"/>
                         <output message="typens:RemoveDiagnosisByStudentIDResponse"/>
+                </operation>
+                <operation name="UpdateDiagnosis">
+                        <input message="typens:UpdateDiagnosis"/>
+                        <output message="typens:UpdateDiagnosisResponse"/>
                 </operation>
         </portType>
         
@@ -184,6 +196,16 @@
                 </operation>
                 
                 <operation name="RemoveDiagnosisByStudentID">
+                        <soap:operation soapAction="urn:DiagnosisWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="UpdateDiagnosis">
                         <soap:operation soapAction="urn:DiagnosisWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>

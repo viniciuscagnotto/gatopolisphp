@@ -81,6 +81,14 @@ class DiagnosisWS {
         	$banco->desconecta_banco();
         	return "";
         }
+        
+        public function UpdateDiagnosis($update){
+        	$banco = new banco();
+        	$Diagnosis = new Diagnosis($banco);
+        	$Diagnosis->Update(json_decode($update, true));
+        	$banco->desconecta_banco();
+        	return "";
+        }
                 
 }
  

@@ -41,6 +41,12 @@
                 <part name="RemoveStudentGroupBySchoolIDReturn" type="xsd:string"/>
         </message>
 
+        <message name="UpdateStudentGroup">
+        		<part name="update" type="xsd:string"/>
+        </message>
+        <message name="UpdateStudentGroupResponse">
+                <part name="UpdateStudentGroupReturn" type="xsd:string"/>
+        </message>
         
         <portType name="StudentGroupWSPortType">
                 <operation name="LoadAllStudentGroups">
@@ -66,6 +72,10 @@
                 <operation name="RemoveStudentGroupBySchoolID">
                         <input message="typens:RemoveStudentGroupBySchoolID"/>
                         <output message="typens:RemoveStudentGroupBySchoolIDResponse"/>
+                </operation>
+                <operation name="UpdateStudentGroup">
+                        <input message="typens:UpdateStudentGroup"/>
+                        <output message="typens:UpdateStudentGroupResponse"/>
                 </operation>
         </portType>
         
@@ -122,6 +132,16 @@
                 </operation>
                 
                 <operation name="RemoveStudentGroupBySchoolID">
+                        <soap:operation soapAction="urn:StudentGroupWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="UpdateStudentGroup">
                         <soap:operation soapAction="urn:StudentGroupWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
