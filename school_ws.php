@@ -22,7 +22,7 @@ class SchoolWS {
         	$banco->desconecta_banco();
         	return $string;
         }
-        
+         
         public function LoadSchoolsByPublicID($publicID) {
         	$banco = new banco();
         	$School = new School($banco);
