@@ -118,16 +118,24 @@ class Student {
 									 birth_date,
 									 school_id,
 									 student_group_id,
-									 picture) VALUES ('".$data["name"]."',
-															   '".$data["last_name"]."',
-															   '".$data["gender"]."',
-															   '".$data["diagnosis_level"]."',
-															   ".$data["coins"].",
-															   '".$data["buildings_count"]."',
-															   '".$data["birth_date"]."',
-															   ".$data["school_id"].",
-															   ".$data["student_group_id"].",
-															   '".$data["picture"]."');";
+									 picture,
+									 app_rating,
+									 used_times_week,
+									 used_times_mont, 
+									 used_times_year) VALUES ('".$data["name"]."',
+															  '".$data["last_name"]."',
+															  '".$data["gender"]."',
+															  '".$data["diagnosis_level"]."',
+															  ".$data["coins"].",
+															  '".$data["buildings_count"]."',
+															  '".$data["birth_date"]."',
+															  ".$data["school_id"].",
+															  ".$data["student_group_id"].",
+															  '".$data["picture"]."',
+															  ".$data["app_rating"].",
+															  ".$data["used_times_week"].",
+															  ".$data["used_times_mont"].",
+															  ".$data["used_times_year"].");";
 		$this->banco->executa($sql);
 		return $this->banco->ultimo_id();
 	}
@@ -161,7 +169,11 @@ class Student {
 						birth_date = '".$data["birth_date"]."',
 						school_id = ".$data["school_id"].",
 						student_group_id = ".$data["student_group_id"].",
-						picture = '".$data["picture"]."'
+						picture = '".$data["picture"]."',
+						app_rating = ".$data["app_rating"].",
+						used_times_week = ".$data["used_times_week"].",
+						used_times_mont = ".$data["used_times_mont"].",
+						used_times_year = ".$data["used_times_year"]."
 							WHERE student_id = ".$data["student_id"];
 		
 		return $this->banco->executa($sql);
@@ -262,6 +274,102 @@ class Student {
 		return $this->banco->executa($sql);
 	}
 	
+/*
+ * VIEWED STUDENT ******************************************
+ */
+	
+	public function LoadViewedStudent($id = ""){
+		$where = "";
+		if($id != "")
+			$where .= " AND vs.viewed_student_id = $id";
+	
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
+					FROM viewed_student vs
+				 		INNER JOIN school s ON s.school_id = vs.school_id
+						INNER JOIN student st ON st.student_id = vs.student_id
+						INNER JOIN teacher t ON t.teacher_id = vs.teacher_id
+							WHERE 1=1".$where;
+		$result = $this->banco->executa($sql);
+		return $result;
+	}
+	
+	public function LoadViewedStudentBySchoolID($schoolID){
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
+					FROM viewed_student vs
+						INNER JOIN school s ON s.school_id = vs.school_id
+						INNER JOIN student st ON st.student_id = vs.student_id
+						INNER JOIN teacher t ON t.teacher_id = vs.teacher_id
+							WHERE vs.school_id = $schoolID";
+		$result = $this->banco->executa($sql);
+		return $result;
+	}
+	
+	public function LoadViewedStudentByStudentID($studentID){
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
+					FROM viewed_student vs
+						INNER JOIN school s ON s.school_id = vs.school_id
+						INNER JOIN student st ON st.student_id = vs.student_id
+						INNER JOIN teacher t ON t.teacher_id = vs.teacher_id
+							WHERE vs.student_id = $studentID";
+		$result = $this->banco->executa($sql);
+		return $result;
+	}
+	
+	public function LoadViewedStudentByTeacherID($teacherID){
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, t.name as teacher_name
+					FROM viewed_student vs
+						INNER JOIN school s ON s.school_id = vs.school_id
+						INNER JOIN student st ON st.student_id = vs.student_id
+						INNER JOIN teacher t ON t.teacher_id = vs.teacher_id
+							WHERE vs.teacher_id = $teacherID";
+		$result = $this->banco->executa($sql);
+		return $result;
+	}
+	
+	public function SaveViewedStudent($data){
+		$sql = "INSERT INTO viewed_student (times_viewed,
+											school_id,
+								 		    student_id,
+								 		    teacher_id) VALUES (".$data["times_viewed"].",
+															    ".$data["school_id"].",
+															    ".$data["student_id"].",
+													 		    ".$data["teacher_id"].");";
+		$this->banco->executa($sql);
+		return $this->banco->ultimo_id();
+	}
+	
+	public function RemoveViewedStudentByID($id){
+		$sql = "DELETE FROM viewed_student WHERE viewed_student_id = $id";
+		return $this->banco->executa($sql);
+	}
+	
+	public function RemoveViewedStudentBySchoolID($schoolID){
+		$sql = "DELETE FROM viewed_student WHERE school_id = $schoolID";
+		return $this->banco->executa($sql);
+	}
+	
+	public function RemoveViewedStudentByStudentID($studentID){
+		$sql = "DELETE FROM viewed_student WHERE student_id = $studentID";
+		return $this->banco->executa($sql);
+	}
+	
+	public function RemoveViewedStudentByTeacherID($teacherID){
+		$sql = "DELETE FROM viewed_student WHERE teacher_id = $teacherID";
+		return $this->banco->executa($sql);
+	}
+	
+	public function UpdateViewedStudent($data){
+		if($data["viewed_student_id"] == "")
+			return;
+	
+		$sql = "UPDATE viewed_student
+					SET times_viewed = ".$data["times_viewed"].",
+						school_id = ".$data["school_id"].",
+						student_id = ".$data["student_id"].",
+						teacher_id = ".$data["teacher_id"]."
+							WHERE viewed_student_id = ".$data["viewed_student_id"];
+		return $this->banco->executa($sql);
+	}
 	
 }
 

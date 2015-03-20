@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+        <message name="LoadAllViewedStudents"/>
+        <message name="LoadAllViewedStudentsResponse">
+                <part name="LoadAllViewedStudentsReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadViewedStudentByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="LoadViewedStudentByIDResponse">
+                <part name="LoadViewedStudentByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadViewedStudentBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="LoadViewedStudentBySchoolIDResponse">
+                <part name="LoadViewedStudentBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadViewedStudentByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="LoadViewedStudentByStudentIDResponse">
+                <part name="LoadViewedStudentByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadViewedStudentByTeacherID">
+        		<part name="teacherID" type="xsd:int"/>
+        </message>
+        <message name="LoadViewedStudentByTeacherIDResponse">
+                <part name="LoadViewedStudentByTeacherIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="SaveViewedStudent">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="SaveViewedStudentResponse">
+                <part name="SaveViewedStudentReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveViewedStudentByID">
+        		<part name="idToRemove" type="xsd:int"/>
+        </message>
+        <message name="RemoveViewedStudentByIDResponse">
+                <part name="RemoveViewedStudentByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveViewedStudentBySchoolID">
+        		<part name="schoolIDToRemove" type="xsd:int"/>
+        </message>
+        <message name="RemoveViewedStudentBySchoolIDResponse">
+                <part name="RemoveViewedStudentBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveViewedStudentByStudentID">
+        		<part name="studentIDToRemove" type="xsd:int"/>
+        </message>
+        <message name="RemoveViewedStudentByStudentIDResponse">
+                <part name="RemoveViewedStudentByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveViewedStudentByTeacherID">
+        		<part name="teacherIDToRemove" type="xsd:int"/>
+        </message>
+        <message name="RemoveViewedStudentByTeacherIDResponse">
+                <part name="RemoveViewedStudentByTeacherIDReturn" type="xsd:string"/>
+        </message>
+       
+        <message name="UpdateViewedStudent">
+        		<part name="update" type="xsd:string"/>
+        </message>
+        <message name="UpdateViewedStudentResponse">
+                <part name="UpdateViewedStudentReturn" type="xsd:string"/>
+        </message>
+        
+        <portType name="ViewedStudentWSPortType">
+                <operation name="LoadAllViewedStudents">
+                        <input message="typens:LoadAllViewedStudents"/>
+                        <output message="typens:LoadAllViewedStudentsResponse"/>
+                </operation>
+                <operation name="LoadViewedStudentByID">
+                        <input message="typens:LoadViewedStudentByID"/>
+                        <output message="typens:LoadViewedStudentByIDResponse"/>
+                </operation>
+                <operation name="LoadViewedStudentBySchoolID">
+                        <input message="typens:LoadViewedStudentBySchoolID"/>
+                        <output message="typens:LoadViewedStudentBySchoolIDResponse"/>
+                </operation>
+                <operation name="LoadViewedStudentByStudentID">
+                        <input message="typens:LoadViewedStudentByStudentID"/>
+                        <output message="typens:LoadViewedStudentByStudentIDResponse"/>
+                </operation>
+                <operation name="LoadViewedStudentByTeacherID">
+                        <input message="typens:LoadViewedStudentByTeacherID"/>
+                        <output message="typens:LoadViewedStudentByTeacherIDResponse"/>
+                </operation>
+                <operation name="SaveViewedStudent">
+                        <input message="typens:SaveViewedStudent"/>
+                        <output message="typens:SaveViewedStudentResponse"/>
+                </operation>
+                <operation name="RemoveViewedStudentByID">
+                        <input message="typens:RemoveViewedStudentByID"/>
+                        <output message="typens:RemoveViewedStudentByIDResponse"/>
+                </operation>
+                <operation name="RemoveViewedStudentBySchoolID">
+                        <input message="typens:RemoveViewedStudentBySchoolID"/>
+                        <output message="typens:RemoveViewedStudentBySchoolIDResponse"/>
+                </operation>
+                <operation name="RemoveViewedStudentByStudentID">
+                        <input message="typens:RemoveViewedStudentByStudentID"/>
+                        <output message="typens:RemoveViewedStudentByStudentIDResponse"/>
+                </operation> 
+                <operation name="RemoveViewedStudentByTeacherID">
+                        <input message="typens:RemoveViewedStudentByTeacherID"/>
+                        <output message="typens:RemoveViewedStudentByTeacherIDResponse"/>
+                </operation>
+                <operation name="UpdateViewedStudent">
+                        <input message="typens:UpdateViewedStudent"/>
+                        <output message="typens:UpdateViewedStudentResponse"/>
+                </operation>
+        </portType>
+        
+        <binding name="ViewedStudentWSBinding" type="typens:ViewedStudentWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                <operation name="LoadAllViewedStudents">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadViewedStudentByID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadViewedStudentBySchoolID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadViewedStudentByStudentID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="LoadViewedStudentByTeacherID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="SaveViewedStudent">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveViewedStudentByID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveViewedStudentBySchoolID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveViewedStudentByStudentID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                <operation name="RemoveViewedStudentByTeacherID">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+                 <operation name="UpdateViewedStudent">
+                        <soap:operation soapAction="urn:ViewedStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                 
+        </binding>
+        
+        <service name="ViewedStudentService">
+                <port name="ViewedStudentWSPort" binding="typens:ViewedStudentWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/viewed_student_ws.php"/>
+                </port>
+        </service>
+</definitions>
