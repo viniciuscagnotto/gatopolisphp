@@ -47,17 +47,13 @@ class bancoMS {
 								'UID'=>$this->usuario_banco,
 								'PWD'=>$this->senha_banco);
 		$this->conexao = sqlsrv_connect($this->host,$connectionInfo);
-		//$this->conexao= mssql_connect($this->host, $this->usuario_banco, $this->senha_banco) or die ("Não foi possível conectar no banco de dados");
-		//mssql_select_db($this->banco) or die ("Não foi possível selecionar o banco");
 	}
 
 	public function executa($sql) {
-		//echo $sql;
 		if($this->conexao!=1){
 			$this->conecta_banco();
 		}
 		
-		//if ( $query = mssql_query ($sql))
 		if($query = sqlsrv_query($this->conexao, $sql))
 			return $query;
 		
@@ -66,13 +62,12 @@ class bancoMS {
 
 	public function encodeJSON($result){
 		$rows = array();
-		while($r = mssql_fetch_assoc($result))
+		while($r = sqlsrv_fetch_array($result))
 			$rows[] = $r;
 		return json_encode($rows);
 	}
 	
 	public function desconecta_banco(){
-		//mssql_close($this->conexao);
 		sqlsrv_close($this->conexao);
 		$this->conexao = 0;
 	}
