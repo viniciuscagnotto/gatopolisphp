@@ -1,12 +1,12 @@
 <?php
  
-include_once "class/banco.class.php";
+include_once "class/bancoms.class.php";
 include_once "class/challenge.class.php";
 
 class ChallengeOutputWS {
 
 		public function LoadAllChallengeOutputs() {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadChallengeGroup();
         	$string = $banco->encodeJSON($rs);
@@ -15,7 +15,7 @@ class ChallengeOutputWS {
         }
         
         public function LoadChallengeOutputByID($id) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadChallengeOutput($id);
         	$string = $banco->encodeJSON($rs);
@@ -24,7 +24,7 @@ class ChallengeOutputWS {
         }
         
         public function LoadChallengeOutputBySchoolID($schoolID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadChallengeOutputBySchoolID($schoolID);
         	$string = $banco->encodeJSON($rs);
@@ -33,7 +33,7 @@ class ChallengeOutputWS {
         }
         
         public function LoadChallengeOutputByStudentID($studentID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadChallengeOutputByStudentID($studentID);
         	$string = $banco->encodeJSON($rs);
@@ -42,7 +42,7 @@ class ChallengeOutputWS {
         }
         
         public function LoadChallengeOutputByStudentIDAndEtapa($studentID, $etapa) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadChallengeOutputByStudentIDAndEtapa($studentID, $etapa);
         	$string = $banco->encodeJSON($rs);
@@ -51,7 +51,7 @@ class ChallengeOutputWS {
         }
         
         public function SaveChallengeOutput($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$ultimoID = $Challenge->SaveChallengeOutput(json_decode($input, true));
         	$banco->desconecta_banco();
@@ -59,7 +59,7 @@ class ChallengeOutputWS {
         }
         
         public function RemoveChallengeOutputByID($id){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->RemoveChallengeOutputByID($id);
         	$banco->desconecta_banco();
@@ -67,7 +67,7 @@ class ChallengeOutputWS {
         }
         
         public function RemoveChallengeOutputBySchoolID($schoolID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->RemoveChallengeOutputBySchoolID($schoolID);
         	$banco->desconecta_banco();
@@ -75,7 +75,7 @@ class ChallengeOutputWS {
         }
         
         public function RemoveChallengeOutputByStudentID($studentID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->RemoveChallengeOutputByStudentID($studentID);
         	$banco->desconecta_banco();
@@ -83,7 +83,7 @@ class ChallengeOutputWS {
         }
         
         public function UpdateChallengeOutput($update){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$Challenge->UpdateChallengeOutput(json_decode($update, true));
         	$banco->desconecta_banco();

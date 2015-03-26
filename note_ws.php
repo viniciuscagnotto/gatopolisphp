@@ -1,12 +1,12 @@
 <?php
  
-include_once "class/banco.class.php";
+include_once "class/bancoms.class.php";
 include_once "class/note.class.php";
 
 class NoteWS {
  
         public function LoadAllNotes() {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->Load();
         	$string = $banco->encodeJSON($rs);
@@ -15,7 +15,7 @@ class NoteWS {
         }
         
         public function LoadNotesByID($id) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->Load($id);
         	$string = $banco->encodeJSON($rs);
@@ -24,7 +24,7 @@ class NoteWS {
         }
         
         public function LoadNotesBySchoolID($schoolID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->LoadBySchoolID($schoolID);
         	$string = $banco->encodeJSON($rs);
@@ -33,7 +33,7 @@ class NoteWS {
         }
         
         public function LoadNotesByStudentID($studentID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->LoadByStudentID($studentID);
         	$string = $banco->encodeJSON($rs);
@@ -42,7 +42,7 @@ class NoteWS {
         }
         
         public function LoadNotesByTeacherID($teacherID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->LoadByTeacherID($teacherID);
         	$string = $banco->encodeJSON($rs);
@@ -51,7 +51,7 @@ class NoteWS {
         }
         
         public function SaveNotes($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$ultimoID = $Note->Save(json_decode($input, true));
         	$banco->desconecta_banco();
@@ -59,7 +59,7 @@ class NoteWS {
         }
         
         public function RemoveNotesByID($id){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->RemoveByID($id);
         	$banco->desconecta_banco();
@@ -67,7 +67,7 @@ class NoteWS {
         }
         
         public function RemoveNotesBySchoolID($schoolID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->RemoveBySchoolID($schoolID);
         	$banco->desconecta_banco();
@@ -75,7 +75,7 @@ class NoteWS {
         }
         
         public function RemoveNotesByStudentID($studentID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->RemoveByStudentID($studentID);
         	$banco->desconecta_banco();
@@ -83,7 +83,7 @@ class NoteWS {
         }
         
         public function RemoveNotesByTeacherID($teacherID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$rs = $Note->RemoveByTeacherID($teacherID);
         	$banco->desconecta_banco();
@@ -91,7 +91,7 @@ class NoteWS {
         }
         
         public function UpdateNotes($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Note = new Note($banco);
         	$Note->Update(json_decode($input, true));
         	$banco->desconecta_banco();

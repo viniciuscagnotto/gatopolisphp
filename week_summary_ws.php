@@ -1,12 +1,12 @@
 <?php
  
-include_once "class/banco.class.php";
+include_once "class/bancoms.class.php";
 include_once "class/challenge.class.php";
 
 class WeekSummaryWS {
  
 		public function LoadAllWeekSummaries() {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadWeekSummary();
         	$string = $banco->encodeJSON($rs);
@@ -15,7 +15,7 @@ class WeekSummaryWS {
         }
         
         public function LoadWeekSummaryByID($id) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadWeekSummary($id);
         	$string = $banco->encodeJSON($rs);
@@ -24,7 +24,7 @@ class WeekSummaryWS {
         }
         
         public function LoadWeekSummaryBySchoolID($schoolID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadWeekSummaryBySchoolID($schoolID);
         	$string = $banco->encodeJSON($rs);
@@ -33,7 +33,7 @@ class WeekSummaryWS {
         }
         
         public function LoadWeekSummaryByStudentID($studentID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadWeekSummaryByStudentID($studentID);
         	$string = $banco->encodeJSON($rs);
@@ -42,7 +42,7 @@ class WeekSummaryWS {
         }
         
         public function LoadWeekSummaryByStudentIDAndEtapa($studentID, $etapa) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->LoadWeekSummaryByStudentIDAndEtapa($studentID, $etapa);
         	$string = $banco->encodeJSON($rs);
@@ -51,7 +51,7 @@ class WeekSummaryWS {
         }
         
         public function SaveWeekSummary($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$ultimoID = $Challenge->SaveWeekSummary(json_decode($input, true));
         	$banco->desconecta_banco();
@@ -59,7 +59,7 @@ class WeekSummaryWS {
         }
         
         public function RemoveWeekSummaryByID($id){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->RemoveWeekSummaryByID($id);
         	$banco->desconecta_banco();
@@ -67,7 +67,7 @@ class WeekSummaryWS {
         }
         
         public function RemoveWeekSummaryBySchoolID($schoolID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->RemoveWeekSummaryBySchoolID($schoolID);
         	$banco->desconecta_banco();
@@ -75,7 +75,7 @@ class WeekSummaryWS {
         }
         
         public function RemoveWeekSummaryByStudentID($studentID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Challenge = new Challenge($banco);
         	$rs = $Challenge->RemoveWeekSummaryByStudentID($studentID);
         	$banco->desconecta_banco();

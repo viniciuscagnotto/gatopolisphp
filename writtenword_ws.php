@@ -1,12 +1,12 @@
 <?php
  
-include_once "class/banco.class.php";
+include_once "class/bancoms.class.php";
 include_once "class/writtenword.class.php";
 
 class WrittenWordWS {
  
         public function LoadAllWrittenWords() {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->Load();
         	$string = $banco->encodeJSON($rs);
@@ -15,7 +15,7 @@ class WrittenWordWS {
         }
         
         public function LoadWrittenWordsByID($id) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->Load($id);
         	$string = $banco->encodeJSON($rs);
@@ -24,7 +24,7 @@ class WrittenWordWS {
         }
         
         public function LoadWrittenWordsBySchoolID($schoolID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->LoadBySchoolID($schoolID);
         	$string = $banco->encodeJSON($rs);
@@ -33,7 +33,7 @@ class WrittenWordWS {
         }
         
         public function LoadWrittenWordsByStudentID($studentID, $amount) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->LoadByStudentID($studentID, $amount);
         	$string = $banco->encodeJSON($rs);
@@ -42,7 +42,7 @@ class WrittenWordWS {
         }
         
         public function SaveWrittenWords($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$ultimoID = $WrittenWord->Save(json_decode($input, true));
         	$banco->desconecta_banco();
@@ -50,7 +50,7 @@ class WrittenWordWS {
         }
         
         public function RemoveWrittenWordsByID($id){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->RemoveByID($id);
         	$banco->desconecta_banco();
@@ -58,7 +58,7 @@ class WrittenWordWS {
         }
         
         public function RemoveWrittenWordsBySchoolID($schoolID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->RemoveBySchoolID($schoolID);
         	$banco->desconecta_banco();
@@ -66,7 +66,7 @@ class WrittenWordWS {
         }
         
         public function RemoveWrittenWordsByStudentID($studentID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$WrittenWord = new WrittenWord($banco);
         	$rs = $WrittenWord->RemoveByStudentID($studentID);
         	$banco->desconecta_banco();

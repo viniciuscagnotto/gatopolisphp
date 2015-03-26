@@ -1,12 +1,12 @@
 <?php
 
-include_once "banco.class.php";
+include_once "bancoms.class.php";
 
 class Student {
 
 	private $banco;
 	
-	public function __construct(banco $banco) {
+	public function __construct(bancoMS $banco) {
 		$this->banco = $banco;
 	}
 	
@@ -43,8 +43,9 @@ class Student {
 															   '".$data["period"]."',
 													 		   '".$data["series"]."',
 													 		   ".$data["school_id"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveStudentGroupByID($id){
@@ -136,8 +137,9 @@ class Student {
 															  ".$data["used_times_week"].",
 															  ".$data["used_times_mont"].",
 															  ".$data["used_times_year"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveStudentByID($id){

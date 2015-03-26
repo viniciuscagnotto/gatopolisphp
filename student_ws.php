@@ -1,12 +1,12 @@
 <?php
  
-include_once "class/banco.class.php";
+include_once "class/bancoms.class.php";
 include_once "class/student.class.php";
 
 class StudentWS {
  
         public function LoadAllStudents() {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$rs = $Student->LoadStudent();
         	$string = $banco->encodeJSON($rs);
@@ -15,7 +15,7 @@ class StudentWS {
         }
         
         public function LoadStudentByID($id) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$rs = $Student->LoadStudent($id);
         	$string = $banco->encodeJSON($rs);
@@ -24,7 +24,7 @@ class StudentWS {
         }
         
         public function LoadStudentBySchoolID($schoolID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$rs = $Student->LoadStudentBySchoolID($schoolID);
         	$string = $banco->encodeJSON($rs);
@@ -33,7 +33,7 @@ class StudentWS {
         }
         
         public function LoadStudentByStudentGroupID($studentGroupID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$rs = $Student->LoadStudentByStudentGroupID($studentGroupID);
         	$string = $banco->encodeJSON($rs);
@@ -42,7 +42,7 @@ class StudentWS {
         }
         
         public function SaveStudent($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$ultimoID = $Student->SaveStudent(json_decode($input, true));
         	$banco->desconecta_banco();
@@ -50,7 +50,7 @@ class StudentWS {
         }
         
         public function RemoveStudentByID($id){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$rs = $Student->RemoveStudentByID($id);
         	$banco->desconecta_banco();
@@ -58,7 +58,7 @@ class StudentWS {
         }
         
         public function RemoveStudentBySchoolID($schoolID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$rs = $Student->RemoveStudentBySchoolID($schoolID);
         	$banco->desconecta_banco();
@@ -66,7 +66,7 @@ class StudentWS {
         }
         
         public function RemoveStudentByStudentGroupID($studentGroupID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$rs = $Student->RemoveStudentByStudentGroupID($studentGroupID);
         	$banco->desconecta_banco();
@@ -74,7 +74,7 @@ class StudentWS {
         }
         
         public function UpdateStudent($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Student = new Student($banco);
         	$Student->UpdateStudent(json_decode($input, true));
         	$banco->desconecta_banco();

@@ -1,12 +1,12 @@
 <?php
 
-include_once "banco.class.php";
+include_once "bancoms.class.php";
 
 class Challenge {
 
 	private $banco;
 	
-	public function __construct(banco $banco) {
+	public function __construct(bancoMS $banco) {
 		$this->banco = $banco;
 	}
 	
@@ -77,8 +77,9 @@ class Challenge {
 															   		  '".$data["minigame"]."',
 															   		  ".$data["school_id"].",
 															   		  ".$data["student_id"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 
 	public function RemoveChallengeOutputByID($id){
@@ -180,8 +181,9 @@ class Challenge {
 															      ".$data["student_id"].",
 															      ".$data["times_played"].",
 															      ".$data["total_time"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveChallengeSummaryByID($id){
@@ -269,8 +271,9 @@ class Challenge {
 														".$data["times_played"].",
 														".$data["total_time"].",
 														".$data["week"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveWeekSummaryByID($id){

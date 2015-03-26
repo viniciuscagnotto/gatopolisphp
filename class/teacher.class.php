@@ -1,12 +1,12 @@
 <?php
 
-include_once "banco.class.php";
+include_once "bancoms.class.php";
 
 class Teacher {
 
 	private $banco;
 	
-	public function __construct(banco $banco) {
+	public function __construct(bancoMS $banco) {
 		$this->banco = $banco;
 	}
 	
@@ -72,8 +72,9 @@ class Teacher {
 															   ".$data["duration_aba_freq"].",
 															   ".$data["duration_transitions"].",
 															   ".$data["duration_grouping"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveByID($id){

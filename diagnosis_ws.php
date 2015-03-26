@@ -1,12 +1,12 @@
 <?php
  
-include_once "class/banco.class.php";
+include_once "class/bancoms.class.php";
 include_once "class/diagnosis.class.php";
 
 class DiagnosisWS {
  
         public function LoadAllDiagnosis() {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->Load();
         	$string = $banco->encodeJSON($rs);
@@ -15,7 +15,7 @@ class DiagnosisWS {
         }
         
         public function LoadDiagnosisByID($id) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->Load($id);
         	$string = $banco->encodeJSON($rs);
@@ -24,7 +24,7 @@ class DiagnosisWS {
         }
         
         public function LoadDiagnosisBySchoolID($schoolID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->LoadBySchoolID($schoolID);
         	$string = $banco->encodeJSON($rs);
@@ -33,7 +33,7 @@ class DiagnosisWS {
         }
         
         public function LoadDiagnosisByStudentID($studentID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->LoadByStudentID($studentID);
         	$string = $banco->encodeJSON($rs);
@@ -42,7 +42,7 @@ class DiagnosisWS {
         }
         
         public function LoadDiagnosisByStudentGroupID($studentGroupID) {
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->LoadByStudentGroupID($studentGroupID);
         	$string = $banco->encodeJSON($rs);
@@ -51,7 +51,7 @@ class DiagnosisWS {
         }
         
         public function SaveDiagnosis($input){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$ultimoID = $Diagnosis->Save(json_decode($input, true));
         	$banco->desconecta_banco();
@@ -59,7 +59,7 @@ class DiagnosisWS {
         }
         
         public function RemoveDiagnosisByID($id){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->RemoveByID($id);
         	$banco->desconecta_banco();
@@ -67,7 +67,7 @@ class DiagnosisWS {
         }
         
         public function RemoveDiagnosisBySchoolID($schoolID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->RemoveBySchoolID($schoolID);
         	$banco->desconecta_banco();
@@ -75,7 +75,7 @@ class DiagnosisWS {
         }
         
         public function RemoveDiagnosisByStudentID($studentID){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$rs = $Diagnosis->RemoveByStudentID($studentID);
         	$banco->desconecta_banco();
@@ -83,7 +83,7 @@ class DiagnosisWS {
         }
         
         public function UpdateDiagnosis($update){
-        	$banco = new banco();
+        	$banco = new bancoMS();
         	$Diagnosis = new Diagnosis($banco);
         	$Diagnosis->Update(json_decode($update, true));
         	$banco->desconecta_banco();

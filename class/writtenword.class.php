@@ -1,12 +1,12 @@
 <?php
 
-include_once "banco.class.php";
+include_once "bancoms.class.php";
 
 class WrittenWord {
 
 	private $banco;
 	
-	public function __construct(banco $banco) {
+	public function __construct(bancoMS $banco) {
 		$this->banco = $banco;
 	}
 	
@@ -65,8 +65,9 @@ class WrittenWord {
 													   		 '".$data["written_at"]."',
 													   		 ".$data["school_id"].",
 													   		 ".$data["student_id"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id(); 
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs); 
 	}
 	
 	public function RemoveByID($id){
