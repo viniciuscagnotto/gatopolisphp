@@ -72,12 +72,10 @@ class bancoMS {
 		$this->conexao = 0;
 	}
 
-	public function ultimo_id(){
-		$result_id = $this->executa('SELECT SCOPE_IDENTITY()');
-		if ($result_id)
-			if ($row = sqlsrv_fetch($result_id))
-				return sqlsrv_get_field($row, 0); 
-		return 0;		
+	public function ultimo_id($result){
+		sqlsrv_next_result($result);
+        sqlsrv_fetch($result);
+        return sqlsrv_get_field($result, 0);
 	}
 
 }

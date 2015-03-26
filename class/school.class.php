@@ -37,8 +37,9 @@ class School {
 		$sql = "INSERT INTO school (name, 
 									sync_code) VALUES ('".$data["name"]."',
 													   '".$data["sync_code"]."');";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME"; 
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveByID($id){
