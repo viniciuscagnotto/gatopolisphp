@@ -78,18 +78,11 @@ class bancoMS {
 	}
 
 	public function ultimo_id(){
-		return 0;
-		/*$result_id = @mssql_query('SELECT SCOPE_IDENTITY()');
-		if ($result_id){
-			if ($row = @mssql_fetch_assoc($result_id)){
-				@mssql_free_result($result_id);
-				return $row['computed'];
-			}
-		
-			@mssql_free_result($result_id);
-		}
-		
-		return false;*/		
+		$result_id = $this->executa('SELECT SCOPE_IDENTITY()');
+		if ($result_id)
+			if ($row = sqlsrv_fetch($result_id))
+				return sqlsrv_get_field($row, 0); 
+		return 0;		
 	}
 
 }
