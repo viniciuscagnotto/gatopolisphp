@@ -1,12 +1,12 @@
 <?php
 
-include_once "banco.class.php";
+include_once "bancoms.class.php";
 
 class School {
 
 	private $banco;
 	
-	public function __construct(banco $banco) {
+	public function __construct(bancoMS $banco) {
 		$this->banco = $banco;
 	}
 	
