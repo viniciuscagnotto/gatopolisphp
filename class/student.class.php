@@ -121,9 +121,7 @@ class Student {
 									 student_group_id,
 									 picture,
 									 app_rating,
-									 used_times_week,
-									 used_times_mont, 
-									 used_times_year) VALUES ('".$data["name"]."',
+									 last_time_used) VALUES ('".$data["name"]."',
 															  '".$data["last_name"]."',
 															  '".$data["gender"]."',
 															  '".$data["diagnosis_level"]."',
@@ -134,9 +132,7 @@ class Student {
 															  ".$data["student_group_id"].",
 															  '".$data["picture"]."',
 															  ".$data["app_rating"].",
-															  ".$data["used_times_week"].",
-															  ".$data["used_times_mont"].",
-															  ".$data["used_times_year"].");";
+															  '".$data["last_time_used"]."');";
 		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
 		$rs = $this->banco->executa($sql);
 		return $this->banco->ultimo_id($rs);
@@ -173,9 +169,7 @@ class Student {
 						student_group_id = ".$data["student_group_id"].",
 						picture = '".$data["picture"]."',
 						app_rating = ".$data["app_rating"].",
-						used_times_week = ".$data["used_times_week"].",
-						used_times_mont = ".$data["used_times_mont"].",
-						used_times_year = ".$data["used_times_year"]."
+						last_time_used = '".$data["last_time_used"]."'
 							WHERE student_id = ".$data["student_id"];
 		
 		return $this->banco->executa($sql);
@@ -329,11 +323,9 @@ class Student {
 	}
 	
 	public function SaveViewedStudent($data){
-		$sql = "INSERT INTO viewed_student (times_viewed,
-											school_id,
+		$sql = "INSERT INTO viewed_student (school_id,
 								 		    student_id,
-								 		    teacher_id) VALUES (".$data["times_viewed"].",
-															    ".$data["school_id"].",
+								 		    teacher_id) VALUES (".$data["school_id"].",
 															    ".$data["student_id"].",
 													 		    ".$data["teacher_id"].");";
 		$this->banco->executa($sql);
@@ -365,8 +357,7 @@ class Student {
 			return;
 	
 		$sql = "UPDATE viewed_student
-					SET times_viewed = ".$data["times_viewed"].",
-						school_id = ".$data["school_id"].",
+					SET school_id = ".$data["school_id"].",
 						student_id = ".$data["student_id"].",
 						teacher_id = ".$data["teacher_id"]."
 							WHERE viewed_student_id = ".$data["viewed_student_id"];

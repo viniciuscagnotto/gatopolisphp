@@ -50,28 +50,14 @@ class Teacher {
 									question,
 									answer,
 									picture,
-									school_id,
-									dashboard_opened,
-									dashboard_duration,
-									duration_aba_obs,
-									duration_aba_prod,
-									duration_aba_freq,
-									duration_transitions,
-									duration_grouping) VALUES ('".$data["name"]."',
-															   '".$data["last_name"]."',
-															   '".$data["email"]."',
-															   '".$data["passcode"]."',
-															   '".$data["question"]."',
-															   '".$data["answer"]."',
-															   '".$data["picture"]."',
-															   ".$data["school_id"].",
-															   ".$data["dashboard_opened"].",
-															   ".$data["dashboard_duration"].",
-															   ".$data["duration_aba_obs"].",
-															   ".$data["duration_aba_prod"].",
-															   ".$data["duration_aba_freq"].",
-															   ".$data["duration_transitions"].",
-															   ".$data["duration_grouping"].");";
+									school_id) VALUES ('".$data["name"]."',
+													   '".$data["last_name"]."',
+													   '".$data["email"]."',
+													   '".$data["passcode"]."',
+													   '".$data["question"]."',
+													   '".$data["answer"]."',
+													   '".$data["picture"]."',
+													   ".$data["school_id"].");";
 		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
 		$rs = $this->banco->executa($sql);
 		return $this->banco->ultimo_id($rs);
@@ -99,14 +85,7 @@ class Teacher {
 						question = '".$data["question"]."',
 						answer = '".$data["answer"]."',
 						picture = '".$data["picture"]."',
-						school_id = ".$data["school_id"].",
-						dashboard_opened = ".$data["dashboard_opened"].",
-						dashboard_duration = ".$data["dashboard_duration"].",
-						duration_aba_obs = ".$data["duration_aba_obs"].",
-						duration_aba_prod = ".$data["duration_aba_prod"].",
-						duration_aba_freq = ".$data["duration_aba_freq"].",
-						duration_transitions = ".$data["duration_transitions"].",
-						duration_grouping = ".$data["duration_grouping"]."
+						school_id = ".$data["school_id"]."
 								WHERE teacher_id = ".$data["teacher_id"];
 		return $this->banco->executa($sql);
 	}

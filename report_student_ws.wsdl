@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+        
+        <message name="LoadAllReportStudents"/>
+        <message name="LoadAllReportStudentsResponse">
+                <part name="LoadAllReportStudentsReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadReportStudentByID">
+        		<part name="id" type="xsd:int"/>
+        </message>
+        <message name="LoadReportStudentByIDResponse">
+                <part name="LoadReportStudentByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadReportStudentBySchoolID">
+        		<part name="schoolID" type="xsd:int"/>
+        </message>
+        <message name="LoadReportStudentBySchoolIDResponse">
+                <part name="LoadReportStudentBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="LoadReportStudentByStudentID">
+        		<part name="studentID" type="xsd:int"/>
+        </message>
+        <message name="LoadReportStudentByStudentIDResponse">
+                <part name="LoadReportStudentByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="SaveReportStudent">
+        		<part name="input" type="xsd:string"/>
+        </message>
+        <message name="SaveReportStudentResponse">
+                <part name="SaveReportStudentReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveReportStudentByID">
+        		<part name="idToRemove" type="xsd:int"/>
+        </message>
+        <message name="RemoveReportStudentByIDResponse">
+                <part name="RemoveReportStudentByIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveReportStudentBySchoolID">
+        		<part name="schoolIDToRemove" type="xsd:int"/>
+        </message>
+        <message name="RemoveReportStudentBySchoolIDResponse">
+                <part name="RemoveReportStudentBySchoolIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="RemoveReportStudentByStudentID">
+        		<part name="studentIDToRemove" type="xsd:int"/>
+        </message>
+        <message name="RemoveReportStudentByStudentIDResponse">
+                <part name="RemoveReportStudentByStudentIDReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="UpdateReportStudent">
+        		<part name="update" type="xsd:string"/>
+        </message>
+        <message name="UpdateReportStudentResponse">
+                <part name="UpdateReportStudentReturn" type="xsd:string"/>
+        </message>
+        
+        <portType name="ReportStudentWSPortType">
+                <operation name="LoadAllReportStudents">
+                        <input message="typens:LoadAllReportStudents"/>
+                        <output message="typens:LoadAllReportStudentsResponse"/>
+                </operation>
+                <operation name="LoadReportStudentByID">
+                        <input message="typens:LoadReportStudentByID"/>
+                        <output message="typens:LoadReportStudentByIDResponse"/>
+                </operation>
+                <operation name="LoadReportStudentBySchoolID">
+                        <input message="typens:LoadReportStudentBySchoolID"/>
+                        <output message="typens:LoadReportStudentBySchoolIDResponse"/>
+                </operation>
+                <operation name="LoadReportStudentByStudentID">
+                        <input message="typens:LoadReportStudentByStudentID"/>
+                        <output message="typens:LoadReportStudentByStudentIDResponse"/>
+                </operation>
+                <operation name="SaveReportStudent">
+                        <input message="typens:SaveReportStudent"/>
+                        <output message="typens:SaveReportStudentResponse"/>
+                </operation>
+                <operation name="RemoveReportStudentByID">
+                        <input message="typens:RemoveReportStudentByID"/>
+                        <output message="typens:RemoveReportStudentByIDResponse"/>
+                </operation>
+                <operation name="RemoveReportStudentBySchoolID">
+                        <input message="typens:RemoveReportStudentBySchoolID"/>
+                        <output message="typens:RemoveReportStudentBySchoolIDResponse"/>
+                </operation>
+                <operation name="RemoveReportStudentByStudentID">
+                        <input message="typens:RemoveReportStudentByStudentID"/>
+                        <output message="typens:RemoveReportStudentByStudentIDResponse"/>
+                </operation>
+                <operation name="UpdateReportStudent">
+                        <input message="typens:UpdateReportStudent"/>
+                        <output message="typens:UpdateReportStudentResponse"/>
+                </operation>
+        </portType>
+        
+        <binding name="ReportStudentWSBinding" type="typens:ReportStudentWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                <operation name="LoadAllReportStudents">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadReportStudentByID">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadReportStudentBySchoolID">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadReportStudentByStudentID">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="SaveReportStudent">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveReportStudentByID">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveReportStudentBySchoolID">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="RemoveReportStudentByStudentID">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="UpdateReportStudent">
+                        <soap:operation soapAction="urn:ReportStudentWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+        </binding>
+        
+        <service name="ReportStudentService">
+                <port name="ReportStudentWSPort" binding="typens:ReportStudentWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/report_student_ws.php"/>
+                </port>
+        </service>
+</definitions>
