@@ -234,8 +234,9 @@ class Student {
 								 		   		  teacher_id) VALUES (".$data["school_id"].",
 															   ".$data["student_group_id"].",
 													 		   ".$data["teacher_id"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveStudentGroupTeacherByID($id){
@@ -328,8 +329,9 @@ class Student {
 								 		    teacher_id) VALUES (".$data["school_id"].",
 															    ".$data["student_id"].",
 													 		    ".$data["teacher_id"].");";
-		$this->banco->executa($sql);
-		return $this->banco->ultimo_id();
+		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
+		$rs = $this->banco->executa($sql);
+		return $this->banco->ultimo_id($rs);
 	}
 	
 	public function RemoveViewedStudentByID($id){
