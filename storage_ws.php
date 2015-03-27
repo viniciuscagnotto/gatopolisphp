@@ -14,8 +14,7 @@ class StorageWS {
         	
         	if($returnURL == 1){
         		$decode = rawurldecode($stringToSave);
-        		$imgData = base64_encode($decode);
-        		$blobRestProxy->createBlockBlob("gatopolis", $blob_name.".jpg", $imgData);
+        		$blobRestProxy->createBlockBlob("gatopolis", $blob_name.".jpg", $decode);
         		
      		   	$listBlobsOptions = new ListBlobsOptions();
     			$listBlobsOptions->setPrefix($blob_name.".jpg");
