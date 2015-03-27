@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+        
+        <message name="Save">
+        		<part name="containerToSave" type="xsd:string"/>
+        		<part name="stringToSave" type="xsd:string"/>
+        </message>
+        <message name="SaveResponse">
+                <part name="SaveReturn" type="xsd:string"/>
+        </message>
+        
+        <message name="Get">
+        		<part name="containerToGetFrom" type="xsd:string"/>
+        		<part name="blobToString" type="xsd:string"/>
+        </message>
+        <message name="GetResponse">
+                <part name="GetReturn" type="xsd:string"/>
+        </message>
+        
+        <portType name="StorageWSPortType">
+                <operation name="Save">
+                        <input message="typens:Save"/>
+                        <output message="typens:SaveResponse"/>
+                </operation>
+                <operation name="Get">
+                        <input message="typens:Get"/>
+                        <output message="typens:GetResponse"/>
+                </operation>
+        </portType>
+        
+        <binding name="StorageWSBinding" type="typens:StorageWSPortType">
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+                <operation name="Save">
+                        <soap:operation soapAction="urn:StorageWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                <operation name="Get">
+                        <soap:operation soapAction="urn:StorageWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+        </binding>
+        
+        <service name="StorageService">
+                <port name="StorageWSPort" binding="typens:StorageWSBinding">
+                        <soap:address location="http://gatopolisphp.azurewebsites.net/storage_ws.php"/>
+                </port>
+        </service>
+</definitions>
