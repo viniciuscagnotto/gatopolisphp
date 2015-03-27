@@ -13,8 +13,12 @@ class StorageWS {
         	$blobRestProxy->createBlockBlob("gatopolis", $blob_name, $stringToSave);
         	
         	if($returnURL == 1){
-        		$blob = $blobRestProxy->getBlob("gatopolis", $blob_name);
-        		return $blob->getUrl();
+     		   	$listBlobsOptions = new ListBlobsOptions();
+    			$listBlobsOptions->setPrefix($blob_name);
+    			$blob_list = $blobRestProxy->listBlobs("gatopolis", $listBlobsOptions);
+    			$blobs = $blob_list->getBlobs();
+    			foreach($blobs as $blob)
+    				return $blob->getUrl();
         	}
         	
         	return $blob_name;
