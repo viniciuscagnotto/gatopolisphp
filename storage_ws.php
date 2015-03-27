@@ -14,7 +14,7 @@ class StorageWS {
         	
         	if($returnURL == 1){
         		$blob = $blobRestProxy->getBlob("gatopolis", $blob_name);
-        		return $blob->getURI();
+        		return $blob->getUrl();
         	}
         	
         	return $blob_name;
