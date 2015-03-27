@@ -11,17 +11,21 @@ class StorageWS {
         	$blob_name = str_replace(" ", "", "blob_".microtime());
         	$blob_name = str_replace(".", "", $blob_name);
         	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
-        	$blobRestProxy->createBlockBlob("gatopolis", $blob_name, $stringToSave);
         	
         	if($returnURL == 1){
+        		$decode = rawurldecode($stringToSave);
+        		$imgData = base64_encode($decode);
+        		$blobRestProxy->createBlockBlob("gatopolis", $blob_name.".jpg", $imgData);
+        		
      		   	$listBlobsOptions = new ListBlobsOptions();
-    			$listBlobsOptions->setPrefix($blob_name);
+    			$listBlobsOptions->setPrefix($blob_name.".jpg");
     			$blob_list = $blobRestProxy->listBlobs("gatopolis", $listBlobsOptions);
     			$blobs = $blob_list->getBlobs();
     			foreach($blobs as $blob)
     				return $blob->getUrl();
         	}
         	
+        	$blobRestProxy->createBlockBlob("gatopolis", $blob_name, $stringToSave);
         	return $blob_name;
         }
         
