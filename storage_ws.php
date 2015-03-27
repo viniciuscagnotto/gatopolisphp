@@ -34,6 +34,14 @@ class StorageWS {
         	$blob = $blobRestProxy->getBlob("gatopolis", $blobToString);
         	return stream_get_contents($blob->getContentStream());
         }
+        
+        public function Delete($blobToDelete) {
+        	$connectionString = "DefaultEndpointsProtocol=https;AccountName=gatopolisphpstorage;AccountKey=MKz0r3FP4329Qk6opMqUh5T64GpchgTs1HYwIdPeKfmC0mxrfA75Q11HW5p7SeXQ2CBodAMF1ZEVDDbVSmgMEg==";
+        	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+        	$blobRestProxy->deleteBlob("gatopolis", $blobToDelete);
+        	return "";
+        }
+        
        
 }
  

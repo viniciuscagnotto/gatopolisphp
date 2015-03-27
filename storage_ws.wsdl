@@ -16,6 +16,13 @@
                 <part name="GetReturn" type="xsd:string"/>
         </message>
         
+        <message name="Delete">
+        		<part name="blobToDelete" type="xsd:string"/>
+        </message>
+        <message name="DeleteResponse">
+                <part name="DeleteReturn" type="xsd:string"/>
+        </message>
+        
         <portType name="StorageWSPortType">
                 <operation name="Save">
                         <input message="typens:Save"/>
@@ -24,6 +31,10 @@
                 <operation name="Get">
                         <input message="typens:Get"/>
                         <output message="typens:GetResponse"/>
+                </operation>
+                <operation name="Delete">
+                        <input message="typens:Delete"/>
+                        <output message="typens:DeleteResponse"/>
                 </operation>
         </portType>
         
@@ -39,6 +50,15 @@
                         </output>
                 </operation>
                 <operation name="Get">
+                        <soap:operation soapAction="urn:StorageWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                <operation name="Delete">
                         <soap:operation soapAction="urn:StorageWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
