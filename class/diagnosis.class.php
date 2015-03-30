@@ -66,7 +66,7 @@ class Diagnosis {
 													 start_time) VALUES ('".$data["diagnosis_level"]."',
 																		 ".$data["school_id"].",
 														 				 ".$data["student_id"].",
-																		 '".$data["date_time"]."');";
+																		 '".$data["start_time"]."');";
 		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
 		$rs = $this->banco->executa($sql);
 		return $this->banco->ultimo_id($rs);
