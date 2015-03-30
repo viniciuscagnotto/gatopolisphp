@@ -15,7 +15,8 @@ class Diagnosis {
 		if($id != "")
 			$where .= " AND dls.diagnosis_level_snapshot_id = $id";
 	
-		$sql = "SELECT *, s.name as school_name, st.name as student_name
+		$sql = "SELECT *, s.name as school_name, st.name as student_name,
+					   dls.diagnosis_level as diagnosis_level_dls, st.diagnosis_level as diagnosis_level_st
 					FROM diagnosis_level_snapshop dls
 				 		INNER JOIN school s ON s.school_id = dls.school_id
 						INNER JOIN student st ON st.student_id = dls.student_id
@@ -25,7 +26,8 @@ class Diagnosis {
 	}
 	
 	public function LoadBySchoolID($schoolID){
-		$sql = "SELECT *, s.name as school_name, st.name as student_name
+		$sql = "SELECT *, s.name as school_name, st.name as student_name,
+					   dls.diagnosis_level as diagnosis_level_dls, st.diagnosis_level as diagnosis_level_st
 					FROM diagnosis_level_snapshop dls
 						INNER JOIN school s ON s.school_id = dls.school_id
 						INNER JOIN student st ON st.student_id = dls.student_id
@@ -35,7 +37,8 @@ class Diagnosis {
 	}
 	
 	public function LoadByStudentID($studentID){
-		$sql = "SELECT *, s.name as school_name, st.name as student_name
+		$sql = "SELECT *, s.name as school_name, st.name as student_name,
+					   dls.diagnosis_level as diagnosis_level_dls, st.diagnosis_level as diagnosis_level_st
 					FROM diagnosis_level_snapshop dls
 						INNER JOIN school s ON s.school_id = dls.school_id
 						INNER JOIN student st ON st.student_id = dls.student_id
@@ -45,7 +48,8 @@ class Diagnosis {
 	}
 	
 	public function LoadByStudentGroupID($studentGroupID){
-		$sql = "SELECT *, s.name as school_name, st.name as student_name, stg.name as student_group_name
+		$sql = "SELECT *, s.name as school_name, st.name as student_name, stg.name as student_group_name,
+					   dls.diagnosis_level as diagnosis_level_dls, st.diagnosis_level as diagnosis_level_st
 					FROM diagnosis_level_snapshop dls
 						INNER JOIN school s ON s.school_id = dls.school_id
 						INNER JOIN student st ON st.student_id = dls.student_id
