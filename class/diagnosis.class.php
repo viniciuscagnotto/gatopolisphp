@@ -95,7 +95,7 @@ class Diagnosis {
 					SET diagnosis_level = '".$data["diagnosis_level"]."',
 						school_id = ".$data["school_id"].",
 						student_id = ".$data["student_id"].",
-						date_time = ".$data["date_time"].",
+						date_time = '".$data["date_time"]."',
 							WHERE diagnosis_level_snapshot_id = ".$data["diagnosis_level_snapshot_id"];
 		return $this->banco->executa($sql);
 	}
