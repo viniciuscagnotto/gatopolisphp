@@ -68,7 +68,8 @@ class Challenge {
 									 		 etapa_challenge,
 									 		 minigame,
 									 		 school_id,
-									 		 student_id) VALUES (".$data["asserts"].",
+									 		 student_id,
+											 timestamp) VALUES (".$data["asserts"].",
 															  		  ".$data["asserts_percentage"].",
 															   		  '".$data["challenge_exercise"]."',
 															   		  ".$data["duration"].",
@@ -76,7 +77,8 @@ class Challenge {
 															   		  '".$data["etapa_challenge"]."',
 															   		  '".$data["minigame"]."',
 															   		  ".$data["school_id"].",
-															   		  ".$data["student_id"].");";
+															   		  ".$data["student_id"].",
+																	  '".$data["timestamp"]."');";
 		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
 		$rs = $this->banco->executa($sql);
 		return $this->banco->ultimo_id($rs);
@@ -110,7 +112,8 @@ class Challenge {
 						etapa_challenge = '".$data["etapa_challenge"]."',
 						minigame = '".$data["minigame"]."',
 						school_id = ".$data["school_id"].",
-						student_id = ".$data["student_id"]."
+						student_id = ".$data["student_id"].",
+						timestamp = '".$data["timestamp"]."'
 								WHERE challenge_output_id = ".$data["challenge_output_id"];
 		return $this->banco->executa($sql);
 	}
