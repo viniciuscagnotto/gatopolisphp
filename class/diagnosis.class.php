@@ -58,9 +58,11 @@ class Diagnosis {
 	public function Save($data){
 		$sql = "INSERT INTO diagnosis_level_snapshop (diagnosis_level,
 								 	 				 school_id,
-								 	 				 student_id) VALUES ('".$data["diagnosis_level"]."',
+								 	 				 student_id,
+													 start_time) VALUES ('".$data["diagnosis_level"]."',
 																		 ".$data["school_id"].",
-														 				 ".$data["student_id"].");";
+														 				 ".$data["student_id"].",
+																		 '".$data["date_time"]."');";
 		$sql .= " SELECT SCOPE_IDENTITY() AS IDENTITY_COLUMN_NAME";
 		$rs = $this->banco->executa($sql);
 		return $this->banco->ultimo_id($rs);
@@ -88,7 +90,8 @@ class Diagnosis {
 		$sql = "UPDATE diagnosis_level_snapshop
 					SET diagnosis_level = '".$data["diagnosis_level"]."',
 						school_id = ".$data["school_id"].",
-						student_id = ".$data["student_id"]."
+						student_id = ".$data["student_id"].",
+						date_time = ".$data["date_time"].",
 							WHERE diagnosis_level_snapshot_id = ".$data["diagnosis_level_snapshot_id"];
 		return $this->banco->executa($sql);
 	}
