@@ -40,6 +40,15 @@ class SchoolWS {
         	$banco->desconecta_banco();
         	return $string;
         }
+		
+		public function LoadSchoolsByName($name) {
+			$banco = new bancoMS();
+        	$School = new School($banco);
+        	$rs = $School->LoadByName($name);
+        	$string = $banco->encodeJSON($rs);
+        	$banco->desconecta_banco();
+        	return $string;
+		}
         
         public function SaveSchools($input){
         	$banco = new bancoMS();

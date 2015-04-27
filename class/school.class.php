@@ -33,6 +33,12 @@ class School {
 		return $result;
 	}
 	
+	public function LoadByName($name){
+		$sql = "SELECT * FROM school WHERE name = '$name'";
+		$result = $this->banco->executa($sql);
+		return $result;
+	}
+	
 	public function Save($data){
 		$sql = "INSERT INTO school (name, 
 									sync_code) VALUES ('".$data["name"]."',

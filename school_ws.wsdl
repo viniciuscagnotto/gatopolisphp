@@ -27,6 +27,13 @@
                 <part name="LoadSchoolsBySyncCodeReturn" type="xsd:string"/>
         </message>
         
+        <message name="LoadSchoolsByName">
+        		<part name="name" type="xsd:string"/>
+        </message>
+        <message name="LoadSchoolsByNameResponse">
+                <part name="LoadSchoolsByNameReturn" type="xsd:string"/>
+        </message>
+        
         <message name="SaveSchools">
         		<part name="input" type="xsd:string"/>
         </message>
@@ -78,6 +85,10 @@
                 <operation name="LoadSchoolsBySyncCode">
                         <input message="typens:LoadSchoolsBySyncCode"/>
                         <output message="typens:LoadSchoolsBySyncCodeResponse"/>
+                </operation>
+                <operation name="LoadSchoolsByName">
+                        <input message="typens:LoadSchoolsByName"/>
+                        <output message="typens:LoadSchoolsByNameResponse"/>
                 </operation>
                 <operation name="SaveSchools">
                         <input message="typens:SaveSchools"/>
@@ -134,6 +145,16 @@
                 </operation>
                 
                 <operation name="LoadSchoolsBySyncCode">
+                        <soap:operation soapAction="urn:SchoolWSAction"/>
+                        <input>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </input>
+                        <output>
+                                <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                        </output>
+                </operation>
+                
+                <operation name="LoadSchoolsByName">
                         <soap:operation soapAction="urn:SchoolWSAction"/>
                         <input>
                                 <soap:body namespace="urn:Service" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
